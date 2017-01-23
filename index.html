@@ -1,71 +1,193 @@
-<!DOCTYPE html>
+<!DOCTYPE html5>
 <html>
 <head>
-<meta charset="UTF-8">
-<meta author="Spectrum Studios">
-<meta name="description" content="Inari">
-<meta name="keywords" content="Inari, game, indie, ios, mobile">
-<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:300' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" type="text/css" href="css/styles.css">
-<title>Inari</title>
+	<meta charset="UTF-8">
+	<meta author="Superjump Studios">
+	<meta name="description" content="Inari">
+	<meta name="keywords" content="Inari, game, indie, ios, mobile">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- MC stylesheet -->
+	<link href="https://cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css">
+	<!-- Our stylesheet overrides -->
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<link rel="icon" href="images/inari-favicon.ico">
+	<script type="text/javascript" src ="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js">
+	</script>
+	<script type="text/javascript" src = "js/script.js">
+	</script>
+	<title>Superjump Studios | Inari</title>
 </head>
 
 
 <body>
-<div id="header">
-	<div id="background">
-		<img src="images/bkgd.png" alt="" width="100%" height="auto">
-	</div>
+<div id="screenshot-expanded-overlay">
+	<img id="screenshot-expanded" src="images/screenshot-1.jpg">
+</div>
 
-	<div id="logo">
-		<img src="images/game-logo.png" alt="Inari Logo" width="650px" height="auto">
-	</div>
-
-	<div id="awards">
-		<img src="images/bfig-award.png" alt="BFIG Official Selection" width="250px" height="auto" style="float: left; margin-right: 100px">
-		<img src="images/gdiac-polished-award.png" alt="GDIAC Most Polished" width="250px" height="auto" style="float: left; margin-right: 100px">
-		<img src="images/gdiac-favorite-award.png" alt="GDIAC Most Polished" width="250px" height="auto">
+<div id="top-wrapper">
+	<div id="nav-wrapper">
+		<img id="menu-icon" src="images/menu-icon.png" alt="Menu">
+		<img id="superjump" src="images/superjump-logo-2.png" alt="Superjump Studios">
+		<div id="nav-bar">
+			<a class="nav-bar-item" href="index.html">
+				HOME
+			</a>
+			<a id="nav-media" class="nav-bar-item">
+				MEDIA
+			</a>
+			<a class="nav-bar-item" href="presskit.html">
+				PRESS KIT
+			</a>
+			<a class="nav-bar-item" href="https://medium.com/@PlayInari">
+				DEV BLOG
+			</a>
+		</div>
+		<div id="social-media-wrapper">
+			<a class="social-media-icon" href="https://www.facebook.com/playinari" target="_blank">
+				<img src="images/facebook-icon.png">
+			</a>
+			<a class="social-media-icon" href="https://www.twitter.com/playinari" target="_blank">
+				<img src="images/twitter-icon.png">
+			</a>
+			<a class="social-media-icon" href="https://www.youtube.com/channel/UCn7mJEJq7Ca22Orr7O1B7jw" target="_blank">
+				<img src="images/youtube-icon.png">
+			</a>
+			<a class="social-media-icon" href="mailto:spectrumstudios7@gmail.com">
+				<img src="images/email-icon.png">
+			</a>
+		</div>
 	</div>
 </div>
 
-<div id="container">
-	<div id="video">
-		<iframe src="https://player.vimeo.com/video/167317785" width="853" height="480" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen>
-		</iframe>
+<div id="banner-wrapper">
+	<img id="bg-night" class="bg-image" src="images/BG-night.jpg" alt="">
+	<img id="bg-sunset" class="bg-image active" src="images/BG-sunset.jpg" alt="">
+	<div id="banner-container">
+		<img id="game-logo" src="images/game-logo.png" alt="Inari Logo">
+		<div id="parallax-wrapper">
+			<img id="inari-img" src="images/inari.png" alt="Inari">
+			<img id="lantern-img" src="images/lantern.png" alt="Lantern">
+			<img id="lantern-2-img" src="images/lantern.png" alt="Lantern">
+			<img id="petal-1-img" src="images/petal-1.png" alt="Petal">
+			<img id="petal-2-img" src="images/petal-1.png" alt="Petal">
+		</div>
+		<div id="awards-wrapper">
+			<div class="award-img-wrapper">
+				<div class="award-event-year">
+					2016
+				</div>
+				<div class="award-event-name">
+					BOSTON FIG
+				</div>
+				<div class="award-name">
+					CATEGORY FINALIST
+				</div>
+			</div>
+			<div class="award-img-wrapper">
+				<div class="award-event-year">
+					2016
+				</div>
+				<div class="award-event-name">
+					GDIAC
+				</div>
+				<div class="award-name">
+					MOST POLISHED
+				</div>
+			</div>
+			<div class="award-img-wrapper">
+				<div class="award-event-year">
+					2016
+				</div>
+				<div class="award-event-name">
+					GDIAC
+				</div>
+				<div class="award-name">
+					AUDIENCE FAVORITE
+					<br>
+					3RD PLACE
+				</div>
+			</div>
+		</div>
 	</div>
+</div>
 
-	<div id="links">
-		<ul>
-			<li style="padding-bottom: 20px"><a href="presskit.html">press kit</a>
-
-			<li>sign up for our <a href="http://goo.gl/forms/WMFwMeDI5Atp3p5p1" target="_blank">email list</a>
-		</ul>
+<div id="description-wrapper">
+	<div id="description-container">
+		<div class="description-container-half">
+			<div id="description-story">
+				<h1>About the Game</h1>
+				<hr>
+				<p>
+					<b>Inari</b> is an iOS action, puzzle-platformer set in a lush eastern world. Upon awakening, you realize that an Ancient Evil has resurfaced, threatening to take away the light of the world. 
+				</p>
+				<p>
+					Use your quick wit and agility to traverse the world, collect scattered light shards, and eventually restore harmony to your home.
+				</p>
+				<p>
+					Are you up to the task?
+				</p>
+				<hr>
+				<p>
+					<b>Release Date: 2017</b>
+				</p>
+			</div>
+		</div>
+		<div class="description-container-half twitter">
+			<a class="twitter-timeline" data-height="560" data-chrome="nofooter transparent" href="https://twitter.com/playinari">Tweets by playinari</a>
+			<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+		</div>
 	</div>
+</div>
 
-	<div class="screenshots-row" style="width: 300px; margin-bottom: 20px">
-		<a href="images/banner.png"><img src="images/banner.png" alt="" width="300px" height="auto"></a>
-	</div>
-
-	<div class="screenshots-row">
-		<ul>
-			<li><a href="images/screenshot1.jpg"><img src="images/screenshot1.jpg" alt="" width="300px" height="auto" style="margin-right: 20px"></a>
-			<li><a href="images/screenshot2.png"><img src="images/screenshot2.png" alt="" width="300px" height="auto"></a>
-		</ul>
-	</div>
-	<div class="screenshots-row">
-		<ul>
-			<li><a href="images/screenshot3.png"><img src="images/screenshot3.png" alt="" width="300px" height="auto" style="margin-right: 20px"></a>
-			<li><a href="images/screenshot4.jpg"><img src="images/screenshot4.jpg" alt="" width="300px" height="auto"></a>
-		</ul>
+<div id="media-wrapper">
+	<div id="media-container">
+		<div class="video-wrapper">
+			<a href="https://player.vimeo.com/video/167317785" target="_blank">
+				<img src="images/screenshot-1.jpg" alt="">
+				<img class="video-overlay-icon" src="images/youtube-icon.png" alt="">
+				<div class="video-overlay-text">GDIAC Trailer</div>
+			</a>
+		</div>
+		<div class="screenshot-wrapper">
+			<img src="images/screenshot-5.jpg" alt="">
+		</div>
+		<div class="screenshot-wrapper">
+			<img src="images/screenshot-7.jpg" alt="">
+		</div>
+		<div class="screenshot-wrapper">
+			<img src="images/screenshot-9.jpg" alt="">
+		</div>
+		<div class="screenshot-wrapper">
+			<img src="images/screenshot-1.jpg" alt="">
+		</div>
+		<div class="screenshot-wrapper">
+			<img src="images/screenshot-5.jpg" alt="">
+		</div>
+		<div class="screenshot-wrapper">
+			<img src="images/screenshot-7.jpg" alt="">
+		</div>
+		<div class="screenshot-wrapper">
+			<img src="images/screenshot-9.jpg" alt="">
+		</div>
 	</div>
 </div>
 
 <div id="footer">
-	<p>Inari was created by</p>
-	<img src="images/spectrum-studios-logo.png" alt="" width="500px" height="auto">
-	<p style="word-spacing: 5px;">Kate Salesin  &#183;  Matthew Persons  &#183;  Phillip Yan  &#183;  Charles Lai  &#183;  Julia Mei  &#183;  John Peng</p>
-	<p style="margin-top: -15px"> music by Zhao Shen</p>
-	<p> questions or comments? <a href="mailto:kas493@cornell.edu?" style="color: #8181A0">email us</a></p>
+	<!-- Begin MailChimp Signup Form -->
+	<div id="mc_embed_signup">
+	<form action="//inarigame.us14.list-manage.com/subscribe/post?u=f144b1bfdd7313c5ba2982c23&amp;id=657cfd5a44" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+	    <div id="mc_embed_signup_scroll">
+	    	<img id="mc_email_icon" src="images/email-icon.png" alt="Email">
+			<label for="mce-EMAIL">Email List Signup</label>
+			<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+		    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+		    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_f144b1bfdd7313c5ba2982c23_657cfd5a44" tabindex="-1" value=""></div>
+		    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+	    </div>
+	</form>
+	</div>
+	<!--End mc_embed_signup-->
+	<img class="superjump" src="images/superjump-logo-2.png" alt="Superjump Studios">
 </div>
 
 </body>
