@@ -17,7 +17,7 @@ body {
 
 a {
 	text-decoration: none;
-	color: #dddddd;
+	color: #999;
  	-webkit-transition: color .3s ease-in-out;
  	-moz-transition: color .3s ease-in-out;
  	-ms-transition: color .3s ease-in-out;
@@ -26,7 +26,7 @@ a {
 }
 
 a:hover {
-	color: #aaaaaa;
+	color: #eee;
 }
 
 h1 {
@@ -50,7 +50,7 @@ hr {
   height: 8px;
 }
 ::-webkit-scrollbar-thumb {
-  background: #ddd;
+  background: #eee;
   border: 0px none #ffffff;
   border-radius: 0px;
 }
@@ -80,11 +80,11 @@ hr {
 #top-wrapper {
 	position: absolute;
 	top: 0;
-	height: 80px;
+	height: 96px;
 	width: 100%;
 	min-width: 1080px;
-	background-color: #222222;
-	color: #dddddd;
+	background-color: #222;
+	color: #555;
 	z-index: 1;
 }
 
@@ -98,10 +98,10 @@ hr {
 		display: none;
 	}
 
-	img#superjump, img.superjump {
+	img.superjump {
 		width: auto;
-		height: 60px;
-		margin: 10px;
+		height: 100%;
+		padding: 16px;
 	}
 
 	#nav-bar {
@@ -118,7 +118,7 @@ hr {
 			font-size: 14pt;
 			text-align: center;
 			vertical-align: middle;
-			line-height: 80px;
+			line-height: 96px;
 			cursor: pointer;
 		}
 
@@ -148,6 +148,7 @@ hr {
 			transform: translateY(-50%);
 			width: 24px;
 			height: 24px;
+			opacity: 0.5;
 			-webkit-transition: opacity ease .5s;
 			-moz-transition: opacity ease .5s;
 			-o-transition: opacity ease .5s;
@@ -156,7 +157,7 @@ hr {
 		}
 
 		#social-media-wrapper img:hover {
-			opacity: 0.5;
+			opacity: 1;
 		}
 
 /*END NAVIGATION STYLING*/
@@ -165,7 +166,7 @@ hr {
 #banner-wrapper {
 	width: 100%;
 	min-width: 1080px;
-	height: 560px;
+	height: 640px;
 	overflow: hidden;
 }
 
@@ -188,7 +189,7 @@ hr {
 			position: absolute;
 			height: 320px;
 			width: auto;
-			top: 100px;
+			top: 128px;
 			left: 0px;
 			/*margin: auto;*/
 		}
@@ -407,7 +408,7 @@ hr {
 			height: 100%;
 			background-color: rgba(0,0,0,0.5);
 			text-align: center;
-			color: #ddd;
+			color: #eee;
 			padding-top: 100px;
 			z-index: 1;
 		}
@@ -432,7 +433,8 @@ hr {
 	padding: 10px 0px;
 	text-align: center;
 	font-size: 10pt;
-	color: #dddddd;
+	color: #eee;
+	overflow: hidden;
 }
 
 	#mc_embed_signup {
@@ -447,18 +449,46 @@ hr {
 
 			#mc_embed_signup label {
 				display: inline-block;
-				font-size: 10pt;
+				font-size: 11pt;
 				font-weight: normal;
-				margin: 0px 20px 0px 10px;
+				margin: 0px 8px;
 				padding: 0;
+				color: #999;
 			}
 
 			#mc_email_icon {
 				display: inline-block;
 				height: 20px;
 				width: auto;
-				vertical-align: middle
+				vertical-align: middle;
+				opacity: 0.5;
 			}
+
+			#mc_embed_signup input.email {
+				font-family: "Myriad Set Pro";
+				background-color: #282828;
+				border: 1px solid #333;
+				color: #999;
+				width: 240px;
+			}
+
+				#mc_embed_signup input.email::-webkit-input-placeholder {
+					font-family: "Myriad Set Pro";
+				}
+
+			#mc_embed_signup .button {
+				background-color: #333;
+				color: #999;
+			}
+
+			#mc_embed_signup .button:hover {
+				background-color: #333;
+				color: #eee;
+			}
+
+	#superjump-footer {
+		height: 128px;
+	}
 /*END FOOTER STYLING*/
 
 /* Press Kit only */
@@ -525,6 +555,7 @@ hr {
 				position: absolute;
 				top: 50%;
 				left: 10%;
+				opacity: 0.5;
 				transform: translate(-50%,-50%);
 				-webkit-transition: opacity ease .5s;
 				-moz-transition: opacity ease .5s;
@@ -534,12 +565,12 @@ hr {
 			}
 
 				img#menu-icon.active {
-					opacity: 0.5;
+					opacity: 1;
 				}
 
 			img#superjump, img.superjump {
 				display: block;
-				margin: 10px auto;
+				margin: 0px auto;
 			}
 
 			#nav-bar {
