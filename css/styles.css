@@ -1,18 +1,30 @@
 /*UNIVERSAL*/
 @font-face {
-	font-family: "Myriad Set Pro";
+	font-family: "Myriad Set Pro Thin";
 	font-style: normal;
 	src: url(../fonts/myriad-set-pro_thin.ttf);
 }
 
+@font-face {
+	font-family: "Myriad Set Pro Text";
+	font-style: normal;
+	src: url(../fonts/myriad-set-pro_text.ttf);
+}
+
 * {
-	font-family: "Myriad Set Pro";
+	font-family: "Myriad Set Pro Thin", sans-serif;
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
 }
 
 body {
 	margin: 0px;
+	background-color: #F7F7F7;
+}
+
+h1, h2, h3, h4, h5, h6, strong, b {
+	font-family: "Myriad Set Pro Text", sans-serif;
+	font-style: normal;
 }
 
 a {
@@ -31,13 +43,19 @@ a:hover {
 
 h1 {
 	font-size: 20pt;
-	font-weight: bold;
 }
 
 hr {
 	border: 0;
     height: 1px;
     background: #aaa;
+}
+
+/* no blue highlight on focus */
+input:focus,
+select:focus,
+button:focus {
+    outline: none;
 }
 
 /*SCROLLBAR STUFF*/
@@ -120,10 +138,11 @@ hr {
 			vertical-align: middle;
 			line-height: 96px;
 			cursor: pointer;
+			border-bottom: 2px solid transparent;
 		}
 
 		.nav-bar-item:hover, .social-media-icon:hover {
-			box-shadow: inset 0px -2px 0px 0px #999;
+			border-color: #ddd;
 		}
 
 	#social-media-wrapper {
@@ -140,6 +159,7 @@ hr {
 			text-align: center;
 			vertical-align: middle;
 			line-height: 80px;
+			border-bottom: 2px solid transparent;
 		}
 
 		#social-media-wrapper img {
@@ -166,7 +186,7 @@ hr {
 #banner-wrapper {
 	width: 100%;
 	min-width: 1080px;
-	height: 640px;
+	height: 600px;
 	overflow: hidden;
 }
 
@@ -174,6 +194,7 @@ hr {
 		position: absolute;
 		width: 100%;
 		min-width: 1080px;
+		height: 910px;
 		top: -280px;
 		z-index: -1;
 	}
@@ -196,7 +217,7 @@ hr {
 
 		#awards-wrapper {
 			width: 100%;
-			height: 80px;
+			height: 100px;
 		}
 
 			.award-img-wrapper {
@@ -211,20 +232,21 @@ hr {
 				background-repeat: no-repeat;
 				color: #fafafa;
 				text-align: center;
+				letter-spacing: 1px;
 			}
 				.award-event-year {
 					margin-top: 5px;
-					font-size: 10pt;
+					font-size: 12pt;
 				}
 
 				.award-event-name {
-					font-size: 18pt;
+					font-size: 20pt;
 					font-weight: bold;
 					margin: 5px 0px;
 				}
 
 				.award-name {
-					font-size: 10pt;
+					font-size: 12pt;
 				}
 
 		#parallax-wrapper {
@@ -293,15 +315,77 @@ hr {
 			    z-index: 4;
 			    filter: blur(1px);
 			}
-/*END BANNER STYLING*/
+/* END BANNER STYLING */
+
+/* EMAIL LIST */
+#emaillist-wrapper {
+	width: 1080px;
+	margin: auto;
+	margin-top: 50px;
+	padding-top: 10px;
+	text-align: center;
+	clear: both;
+}
+
+	#emaillist-wrapper h2 {
+		margin-bottom: 0;
+	}
+
+	#emaillist-wrapper p {
+		font-size: 20px;
+		margin-top: 5px;
+	}
+
+		#mc_embed_signup_scroll{
+			margin: auto;
+		}
+
+			#mc_embed_signup input.email {
+				font-family: "Myriad Set Pro";
+				background-color: white;
+				border: 1px solid #ddd;
+				color: #999;
+				max-width: 260px;
+				height: 40px;
+				font-size: 16px;
+			}
+
+				input::placeholder {
+					font-family: "Myriad Set Pro"!important;
+				}
+				input::-webkit-input-placeholder {
+					font-family: "Myriad Set Pro"!important;
+				}
+				input:-moz-placeholder {
+					font-family: "Myriad Set Pro"!important;
+				}
+				input::-moz-placeholder {
+					font-family: "Myriad Set Pro"!important;
+				}
+				input:-ms-input-placeholder {
+					font-family: "Myriad Set Pro"!important;
+				}
+
+			#mc_embed_signup .button {
+				height: 40px;
+				font-size: 16px;
+				margin-left: 5px;
+				background-color: #333;
+				color: #999;
+			}
+
+			#mc_embed_signup .button:hover {
+				background-color: #333;
+				color: #eee;
+			}
+
 
 /*DESCRIPTION STYLING*/
 #description-wrapper {
 	width: 100%;
 	min-width: 1080px;
 	height: auto;
-	/*background-color: #f2efec;*/
-	background: url(http://cdn.backgroundhost.com/backgrounds/subtlepatterns/pw_maze_white.png);
+/*	background: url(http://cdn.backgroundhost.com/backgrounds/subtlepatterns/pw_maze_white.png); */
 }
 	
 	#description-container {
@@ -324,16 +408,17 @@ hr {
 
 			#description-story {
 				height: 560px;
-				background-color: rgba(0,0,0,0.04);
-				padding: 20px;
+				background-color: white;
+				box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.05);
+/*				background-color: rgba(0,0,0,0.04);
+*/				padding: 20px;
 				color: #444;
 			}
 
 			a.twitter-timeline {
 				background-color: rgba(0,0,0,0.04);
 			}
-/*END DESCRIPTION STYLINH*/
-
+/*END DESCRIPTION STYLING*/
 
 /*MEDIA STYLING*/
 #screenshot-expanded-overlay {
@@ -364,8 +449,9 @@ hr {
 	min-width: 1080px;
 	height: auto;
 	margin: auto;
-	background: url(http://cdn.backgroundhost.com/backgrounds/subtlepatterns/dark_geometric.png);
-}
+	background-color: #2d2d2d;
+/*	background: url(http://cdn.backgroundhost.com/backgrounds/subtlepatterns/dark_geometric.png);
+*/}
 
 	#media-container {
 		width: 1080px;
@@ -374,23 +460,23 @@ hr {
 		padding: 40px 20px;
 	}
 
-		.screenshot-wrapper, .video-wrapper {
+		.screenshot-wrapper {
 			display: inline-block;
 			position: relative;
 			width: calc(100%/4.4);
 			height: 140px;
 			margin: 10px;
-			-webkit-box-shadow: 0px 0px 4px 2px rgba(0,0,0,0.5);
-			-moz-box-shadow: 0px 0px 4px 2px rgba(0,0,0,0.5);
-			box-shadow: 0px 0px 4px 2px rgba(0,0,0,0.5);
-			border: 1px solid #444;
+			-webkit-box-shadow: 0px 0px 4px 2px rgba(0,0,0,0.2);
+			-moz-box-shadow: 0px 0px 4px 2px rgba(0,0,0,0.2);
+			box-shadow: 0px 0px 4px 2px rgba(0,0,0,0.2);
+			border: 1px solid #222222;
 		}
 
-		.screenshot-wrapper:hover, .video-wrapper:hover {
-			border: 1px solid #59AEE8;
+		.screenshot-wrapper:hover {
+			border: 1px solid #DDDDDD;
 		}
 
-			.screenshot-wrapper img, .video-wrapper img {
+			.screenshot-wrapper img {
 				width: 100%;
 				height: 100%;
 			}
@@ -400,29 +486,30 @@ hr {
 				cursor: -webkit-zoom-in;
 			}
 
-		.video-wrapper .video-overlay-text {
-			position: absolute;
-			bottom: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			background-color: rgba(0,0,0,0.5);
-			text-align: center;
-			color: #eee;
-			padding-top: 100px;
-			z-index: 1;
+		.video-wrapper {
+			max-width: 768px;
+			margin: auto;
 		}
 
-		.video-wrapper .video-overlay-icon {
-			position: absolute;
-			width: 48px;
-			height: auto;
-			top: 50%;
-			left: 50%;
-    		transform: translate(-50%, -50%);
-			z-index: 2;
-			opacity: 0.8;
-		}
+			.video-wrapper .video-label {
+				color: white;
+				text-align: center;
+			}
+
+			.embed-container { 
+				position: relative; 
+				padding-bottom: 56.25%; 
+				height: 0; 
+				overflow: hidden; 
+			}
+
+				.embed-container iframe { 
+					position: absolute; 
+					top: 0; 
+					left: 0; 
+					width: 100%; 
+					height: 100%; 
+				}
 /*END MEDIA STYLING*/
 
 /* FOOTER STYLING*/
@@ -436,55 +523,6 @@ hr {
 	color: #eee;
 	overflow: hidden;
 }
-
-	#mc_embed_signup {
-		clear: left; 
-		width: 100%;
-	}
-
-		#mc_embed_signup_scroll{
-			width: 1080px;
-			margin: auto;
-		}
-
-			#mc_embed_signup label {
-				display: inline-block;
-				font-size: 11pt;
-				font-weight: normal;
-				margin: 0px 8px;
-				padding: 0;
-				color: #999;
-			}
-
-			#mc_email_icon {
-				display: inline-block;
-				height: 20px;
-				width: auto;
-				vertical-align: middle;
-				opacity: 0.5;
-			}
-
-			#mc_embed_signup input.email {
-				font-family: "Myriad Set Pro";
-				background-color: #282828;
-				border: 1px solid #333;
-				color: #999;
-				width: 240px;
-			}
-
-				#mc_embed_signup input.email::-webkit-input-placeholder {
-					font-family: "Myriad Set Pro";
-				}
-
-			#mc_embed_signup .button {
-				background-color: #333;
-				color: #999;
-			}
-
-			#mc_embed_signup .button:hover {
-				background-color: #333;
-				color: #eee;
-			}
 
 	#superjump-footer {
 		height: 128px;
@@ -672,10 +710,6 @@ hr {
 	#footer {
 		min-width: 0px;
 	}
-
-		#mc_embed_signup {
-			display: none;
-		}
 
 	/*presskit stuff*/
 	#presskit-wrapper {

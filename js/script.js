@@ -57,6 +57,18 @@ $(document).ready(function() {
 
 	});
 
+	// Smooth scroll for on-page navigation links
+	$('a[href^="#"]').on('click', function(e) {
+	    e.preventDefault();
+	    var target = $(this.hash);
+
+	    $('html, body').stop().animate({
+	        'scrollTop': target.offset().top
+	    }, 500, 'swing', function () {
+	        window.location.hash = target;
+	    });
+	});
+
 });
 
 var xi = 0;
