@@ -345,7 +345,7 @@ button:focus {
 				background-color: white;
 				border: 1px solid #ddd;
 				color: #999;
-				max-width: 260px;
+				max-width: 280px;
 				height: 40px;
 				font-size: 16px;
 			}
@@ -664,6 +664,12 @@ button:focus {
 			#awards-wrapper {
 				display: none;
 			}
+
+	#emaillist-wrapper {
+		width: 100%;
+		padding-left: 10px;
+		padding-right: 10px;
+	}
 
 	#description-wrapper {
 		min-width: 0px;
