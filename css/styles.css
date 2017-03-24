@@ -58,6 +58,19 @@ button:focus {
     outline: none;
 }
 
+input::-webkit-input-placeholder {
+	font-family: "Myriad Set Pro Thin";
+}
+input:-moz-placeholder {
+	font-family: "Myriad Set Pro Thin";
+}
+input::-moz-placeholder {
+	font-family: "Myriad Set Pro Thin";
+}
+input:-ms-input-placeholder {
+	font-family: "Myriad Set Pro Thin";
+}
+
 /*SCROLLBAR STUFF*/
 ::-webkit-scrollbar {
   width: 6px;
@@ -341,7 +354,7 @@ button:focus {
 		}
 
 			#mc_embed_signup input.email {
-				font-family: "Myriad Set Pro";
+				font-family: "Myriad Set Pro Thin";
 				background-color: white;
 				border: 1px solid #ddd;
 				color: #999;
@@ -349,22 +362,6 @@ button:focus {
 				height: 40px;
 				font-size: 16px;
 			}
-
-				input::placeholder {
-					font-family: "Myriad Set Pro"!important;
-				}
-				input::-webkit-input-placeholder {
-					font-family: "Myriad Set Pro"!important;
-				}
-				input:-moz-placeholder {
-					font-family: "Myriad Set Pro"!important;
-				}
-				input::-moz-placeholder {
-					font-family: "Myriad Set Pro"!important;
-				}
-				input:-ms-input-placeholder {
-					font-family: "Myriad Set Pro"!important;
-				}
 
 			#mc_embed_signup .button {
 				height: 40px;
