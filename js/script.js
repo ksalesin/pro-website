@@ -11,6 +11,9 @@ $(document).ready(function() {
 			xi = e.pageX;
 			yi = e.pageY;
 		}
+
+	updateNavBarTabs();
+
 	});
 
 	// dismiss screenshot overlay
@@ -19,7 +22,7 @@ $(document).ready(function() {
 	});
 
 	// bring up screenshot overlay
-	$(".screenshot-wrapper img").click(function(e) {
+	$("#media-table td img").click(function(e) {
 		$("#screenshot-expanded-overlay").fadeIn(500);
 		$("#screenshot-expanded").attr("src", $(this).attr("src"));
 	});
@@ -31,13 +34,10 @@ $(document).ready(function() {
 		, 1000);
 	});
 
-	// cycle BG interval
-	setInterval(cycleBG, 5000);
-
 	// mobile menu stuff
 	$("#top-wrapper").click(function(e) {
 		// media query
-		var mq = window.matchMedia("(max-width: 700px)");
+		var mq = window.matchMedia("(max-width: 768px)");
 
 		if (mq.matches) {
 			// mobile
@@ -63,13 +63,22 @@ $(document).ready(function() {
 	    var target = $(this.hash);
 
 	    $('html, body').stop().animate({
-	        'scrollTop': target.offset().top
+	        'scrollTop': target.offset().top - navBarSnapHeight // '48px' accounts for nav bar
 	    }, 500, 'swing', function () {
 	        window.location.hash = target;
 	    });
 	});
 
+	// nav bar css stuff depending on scroll position
+	$(window).scroll(function() {
+		if (window.matchMedia("(min-width: 768px)").matches) { // only in non-mobile mode
+			snapNavBar();
+			updateNavBarTabs();
+		}
+	});
 });
+
+var navBarSnapHeight = 0;
 
 var xi = 0;
 var yi = 0;
@@ -89,14 +98,35 @@ function parallax(e, target, layer) {
    $(target).offset({left : posX-(xDelta/layer_coeff_x), top : posY-(yDelta/layer_coeff_y)});
 };
 
-// cycle BGs on banner
-var cycleBG = function() {
-	if ($("#bg-sunset").hasClass("active")) {
-		$("#bg-sunset").fadeOut(1000);
-		$("#bg-sunset").toggleClass("active");
-	} else {
-		$("#bg-sunset").fadeIn(1000);
-		$("#bg-sunset").toggleClass("active");
+// snap nav bar to top of page when appropriate
+function snapNavBar() {
+	if ($(window).scrollTop() == 0) { // scroll pos at top
+		$("#top-wrapper").removeClass("snapped");
+		navBarSnapHeight = 0;
+	} else { // not at top
+		$("#top-wrapper").addClass("snapped");
+		navBarSnapHeight = 48;
 	}
+}
+"e"
+var scrollMarker = {
+	1: "#banner-wrapper",
+	2: "#emaillist-wrapper",
+	3: "#media-wrapper"
 };
+
+// set the correct nav bar tab to active depending on scroll pos
+function updateNavBarTabs() {
+	var pos = $(window).scrollTop();
+	// remove active class
+	$(".nav-bar-item.active").removeClass("active");
+
+	if (pos < $(scrollMarker["2"]).offset().top - navBarSnapHeight) {
+		$("#nav-bar-home").addClass("active");
+	} else if (pos >= $(scrollMarker["2"]).offset().top - navBarSnapHeight && pos < $(scrollMarker["3"]).offset().top - navBarSnapHeight) {
+		$("#nav-bar-about").addClass("active");
+	} else if (pos >= $(scrollMarker["3"]).offset().top - navBarSnapHeight) {
+		$("#nav-bar-media").addClass("active");
+	}
+}
 

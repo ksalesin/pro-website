@@ -27,18 +27,21 @@
 <div id="top-wrapper">
 	<div id="nav-wrapper">
 		<img id="menu-icon" src="images/menu-icon.png" alt="Menu">
-		<img class="superjump" src="images/superjump-logo-2.png" alt="Superjump Studios">
+		<div id="superjump-wrapper">
+			<img id="superjump-logo" src="images/superjump-logo-only.png" alt="Superjump Studios">
+			<img id="superjump-text" src="images/superjump-text-only.png" alt="Superjump Studios">
+		</div>
 		<div id="nav-bar">
-			<a class="nav-bar-item" href="index.html">
+			<a id="nav-bar-home" class="nav-bar-item" href="#banner-wrapper">
 				HOME
 			</a>
-			<a class="nav-bar-item" href="#emaillist-wrapper">
+			<a id="nav-bar-about" class="nav-bar-item" href="#emaillist-wrapper">
 				ABOUT
 			</a>
-			<a class="nav-bar-item" href="#media-wrapper">
+			<a id="nav-bar-media" class="nav-bar-item" href="#media-wrapper">
 				MEDIA
 			</a>
-			<a class="nav-bar-item" href="https://medium.com/@PlayInari" target="_blank">
+			<a id="nav-bar-blog" class="nav-bar-item" href="https://medium.com/@PlayInari" target="_blank">
 				BLOG
 			</a>
 		</div>
@@ -60,8 +63,6 @@
 </div>
 
 <div id="banner-wrapper">
-	<img id="bg-night" class="bg-image" src="images/BG-night.jpg" alt="">
-	<img id="bg-sunset" class="bg-image active" src="images/BG-sunset.jpg" alt="">
 	<div id="banner-container">
 		<img id="game-logo" src="images/game-logo.png" alt="Inari Logo">
 		<div id="parallax-wrapper">
@@ -114,7 +115,7 @@
 
 
 <div id="emaillist-wrapper">
-	<h2>Inari is still in development.</h2>
+	<h2>Inari is coming soon.</h2>
 	<p>Want to keep up with the latest updates? &nbsp;Sign up for our email list:</p>
 	<!-- Begin MailChimp Signup Form -->
 	<div id="mc_embed_signup">
@@ -123,70 +124,77 @@
 			<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
 		    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
 		    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_f144b1bfdd7313c5ba2982c23_657cfd5a44" tabindex="-1" value=""></div>
-		    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+		    <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
 	    </div>
 	</form>
 	</div>
 	<!--End mc_embed_signup-->
 </div>
 
+<hr class="long">
+
 <div id="description-wrapper">
-	<div id="description-container">
-		<div class="description-container-half">
-			<div id="description-story">
-				<h1>About the Game</h1>
-				<hr>
-				<p>
-					<b>Inari</b> is an iOS action, puzzle-platformer set in a lush eastern world. Upon awakening, you realize that an Ancient Evil has resurfaced, threatening to take away the light of the world. 
-				</p>
-				<p>
-					Use your quick wit and agility to traverse the world, collect scattered light shards, and eventually restore harmony to your home.
-				</p>
-				<p>
-					Are you up to the task?
-				</p>
-				<hr>
-				<p>
-					<b>Release Date: 2017</b>
-				</p>
-				<p>
-					Inari is currently in beta testing through TestFlight. Sign up for our <b>email list</b> for an invitation to the game.
-				</p>
-			</div>
+	<div class="description-half">
+		<div id="description-story">
+			<h1>About the Game</h1>
+			<hr>
+			<p>
+				<b>Inari</b> is an iOS action, puzzle-platformer set in a lush eastern world. Upon awakening, you realize that an Ancient Evil has resurfaced, threatening to take away the light of the world. 
+			</p>
+			<p>
+				Use your quick wit and agility to traverse the world, collect scattered light shards, and eventually restore harmony to your home.
+			</p>
+			<p>
+				Are you up to the task?
+			</p>
+			<hr>
+			<p>
+				<b>Release Date: 2017</b>
+			</p>
+			<p>
+				Inari is currently in beta testing through TestFlight. Sign up for our <a href="#emaillist-wrapper"><b>email list</b></a> for an invitation to the game.
+			</p>
 		</div>
-		<div class="description-container-half twitter">
-			<a class="twitter-timeline" data-height="560" data-chrome="nofooter transparent" href="https://twitter.com/playinari">Tweets by playinari</a>
+	</div>
+	<div class="description-half twitter">
+		<div id="description-story">
+			<a class="twitter-timeline" data-height="540" data-chrome="nofooter transparent" href="https://twitter.com/playinari">Tweets by playinari</a>
 			<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 		</div>
 	</div>
 </div>
 
 <div id="media-wrapper">
-	<div id="media-container">
-		<div class="video-wrapper">
-			<div class="embed-container">
-				<iframe src="https://player.vimeo.com/video/188570816" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-			</div>
-<!-- 			<p class="video-label">IGF Trailer</p> -->		
-		</div>
-
-		<div class="screenshot-wrapper">
-			<img src="images/screenshot-1.jpg" alt="">
-		</div>
-		<div class="screenshot-wrapper">
-			<img src="images/screenshot-5.jpg" alt="">
-		</div>
-		<div class="screenshot-wrapper">
-			<img src="images/screenshot-7.jpg" alt="">
-		</div>
-		<div class="screenshot-wrapper">
-			<img src="images/screenshot-9.jpg" alt="">
-		</div>
+	<div id="media-inner-wrapper">
+		<table id="media-table">
+			<tr>
+				<td id="video-cell" rowspan="2" colspan="2">
+					<iframe src="https://player.vimeo.com/video/188570816?color=ffffff&amp;title=0&amp;byline=0&amp;portrait=0" width="512" height="288" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+				</td>
+				<td><img src="images/screenshot-1.jpg" alt=""></td>
+				<td><img src="images/screenshot-5.jpg" alt=""></td>
+			</tr>
+			<tr>
+				<td><img src="images/screenshot-7.jpg" alt=""></td>
+				<td><img src="images/screenshot-9.jpg" alt=""></td>
+			</tr>
+			<tr>
+				<td><img src="images/screenshot-2.jpg" alt=""></td>
+				<td><img src="images/screenshot-5.jpg" alt=""></td>
+				<td><img src="images/screenshot-7.jpg" alt=""></td>
+				<td><img src="images/screenshot-9.jpg" alt=""></td>
+			</tr>
+			<tr>
+				<td id="music-cell" colspan="4">
+					<iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/288690551&amp;color=ff9900&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>
+				</td>
+			</tr>
+		</table>
 	</div>
 </div>
 
 <div id="footer">
-	<img id="superjump-footer" class="superjump" src="images/superjump-logo-2.png" alt="Superjump Studios">
+	<img id="superjump-footer" src="images/superjump-logo-2.png" alt="Superjump Studios">
 </div>
 
 </body>
