@@ -1,0 +1,440 @@
+/* Variables */
+$accent-font: 'Rajdhani';
+$plain-font: 'Nunito';
+
+$bg-color: #192a56; /* Navy */
+$text-color: #686de0;
+$text-color-lt: #7F83EA;
+$red: #ff1d25;
+$yellow: #ffd32a;
+$green: #0be881;
+$blue: #34e7e4;
+$purple: #e056fd;
+
+/* Cross-browser transitions */
+@mixin transition ($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
+/* Cross-browser transform */
+@mixin transform ($args...) {
+  -webkit-transform: $args;
+  -moz-transform: $args;
+  -ms-transform: $args;
+  -o-transform: $args;
+  transform: $args;
+}
+
+/* Cross-browser animation */
+/* Must exist @keyframes element of matching name defining animation */
+@mixin animation ($args...) {
+  -webkit-animation: $args; 
+  -moz-animation: $args;
+  -ms-animation: $args;
+  -o-animation: $args;
+  animation: $args;
+}
+
+/* Cross-browser background gradient, top to bottom */
+@mixin gradient ($color1, $color2) {
+	background: $color1; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient($color1, $color2);
+    background: -o-linear-gradient($color1, $color2);
+    background: -moz-linear-gradient($color1, $color2);
+    background: linear-gradient($color1, $color2);
+}
+
+/* Media query breakpoints */
+@mixin bp($size) {
+	/*  Default <576px, portrait phones */
+	/* Landscape phones */
+	@if $size == s {
+		@media (min-width: 576px) { @content; }
+	}
+	/* Tablets */
+	@else if $size == m {
+		@media (min-width: 768px) { @content; }
+	}
+	/* Desktops */
+	@else if $size == l {
+		@media (min-width: 992px) { @content; }
+	}
+	/* Large desktops */
+	@else if $size == xl {
+		@media (min-width: 1200px) { @content; }
+	}
+}
+
+/* BODY */
+html,
+body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: $plain-font, sans-serif;
+	background-color: $bg-color;
+	color: $text-color;
+	font-weight: 400;
+	@include transition(2.0s);
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus, 
+a, a:hover, a:active, a:focus {
+  outline: none;
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: $accent-font, sans-serif;
+	font-weight: 700;
+}
+
+.red, .yellow, .green, .blue, .purple {
+	font-weight: 700;
+}
+.text-color {
+	color: $text-color;
+}
+.white {
+	color: white;
+}
+.red {
+	color: $red;
+}
+.yellow {
+	color: $yellow;
+}
+.green {
+	color: $green;
+}
+.blue {
+	color: $blue;
+}
+.purple {
+	color: $purple;
+}
+
+.bg-text-color, .bg-white, .bg-red, 
+.bg-yellow, .bg-green, .bg-blue, .bg-purple {
+	padding: 0 7px;
+	color: white;
+	font-weight: 400;
+	border-radius: 3px;
+	box-decoration-break: clone;
+	-webkit-box-decoration-break: clone;
+}
+.bg-text-color {
+	background-color: $text-color;
+}
+.bg-white {
+	background-color: white;
+}
+.bg-red {
+	background-color: $red;
+}
+.bg-yellow {
+	background-color: $yellow;
+}
+.bg-green {
+	background-color: $green;
+}
+.bg-blue {
+	background-color: $blue;
+}
+.bg-purple {
+	background-color: $purple;
+}
+
+a.red,a.yellow,a.green,a.blue,a.purple {
+	position: relative;
+	bottom: 0;
+	padding: 1px 7px;
+	color: white;
+	font-weight: 400;
+	box-shadow: 0 0 0 $purple;
+	border-radius: 3px;
+	font-family: $plain-font, sans-serif;
+	@include transition(.2s);
+
+	box-decoration-break: clone;
+	-webkit-box-decoration-break: clone;
+
+	&:hover {
+		bottom: 3px;
+	}
+}
+a.red {
+	background-color: $red;
+	&:hover {
+		box-shadow: 0 1px 5px $red;
+	}
+}
+a.yellow {
+	background-color: $yellow;
+	&:hover {
+		box-shadow: 0 1px 5px $yellow;
+	}
+}
+a.green {
+	background-color: $green;
+	&:hover {
+		box-shadow: 0 1px 5px $green;
+	}
+}
+a.blue {
+	background-color: $blue;
+	&:hover {
+		box-shadow: 0 1px 5px $blue;
+	}
+}
+a.purple {
+	background-color: $purple;
+	&:hover {
+		box-shadow: 0 1px 5px $purple;
+	}
+}
+
+#tiles:before {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    z-index: -1;
+    opacity: 1.0;
+
+	background-image: url('images/tile1.png');
+	background-color: transparent;
+	background-repeat: repeat;
+	background-position: center;
+	background-size: contain;
+
+	@include transform(rotate(-45deg));
+
+	@include bp(s) {
+		background-size: 400px 400px;
+	}
+}
+
+#tiles {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	@include transition(2.0s);
+	z-index: -1;
+}
+
+#hero {
+	@include bp(l) {
+		position: relative;
+		min-height: 100vh;
+	}
+
+	.text-wrapper {
+		@include bp(l) {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			@include transform(translate(-50%, -50%));
+		}
+	}
+
+	h1 {
+		margin-top: 10px;
+		font-size: 3em;
+
+		@include bp(m) {
+			font-size: 5em;
+		}
+	}
+
+	h2 {
+		margin-bottom: 10px;
+		font-size: 1.5em;
+		color: $text-color-lt;
+
+		@include bp(m) {
+			font-size: 2em;
+		}
+	}
+
+	p {
+		font-size: 1.2em;
+		color: $text-color-lt;
+
+		@include bp(m) {
+			font-size: 1.5em;
+		}
+	}
+
+	a.red,a.yellow,a.green,a.blue,a.purple {
+		color: $bg-color;
+	}
+
+	#portrait {
+		display: block;
+		width: 200px;
+		height: auto;
+		margin: auto;
+		border-radius: 50%;
+		border: 3px solid $purple;
+		box-shadow: 0 5px 10px rgba(0,0,0,0.8);
+
+		@include bp(m) {
+			float: right;
+			margin-top: 10px;
+			margin-right: 50px;
+		}
+	}
+}
+
+#airplane {
+	display: block;
+	width: 75px;
+	height: 75px;
+	background-image: url("images/airplane-closed.png");
+	background-size: 100% 100%;
+	margin: auto;
+
+	&:hover {
+		background-image: url("images/airplane-open.png");
+	}
+
+	@include bp(l) {
+		display: inline-block;
+	}
+}
+
+.section {
+	width: 100%;
+	min-height: 600px;
+	font-size: 1.1em;
+
+	.text-wrapper {
+		padding: 10px;
+
+		@include bp(l) {
+			margin: 0 auto;
+			width: 900px;
+		}
+	}
+
+	.intro {
+		font-size: 1.2em;
+	}
+
+	ul {
+		li {
+			margin: 10px 0;
+		}
+	}
+}
+
+.white-box {
+	padding: 20px 10px;
+	background-color: white;
+	filter: drop-shadow(0px 0px 10px rgba(0,0,0,.4));
+}
+
+/* Cards (float up on hover) */
+
+.row-wrapper {
+	padding: 40px 0;
+}
+
+.card-container {
+	position: relative;
+	bottom: 0;
+	width: calc(100% - 40px);
+	margin: 15px 0;
+	padding: 20px;
+	background-color: white;
+	border-radius: 5px;
+	box-shadow: 0 0 15px rgba(0,0,0,0.3);
+	@include transition(.2s);
+
+	&:hover {
+		bottom: 3px;
+		box-shadow: 0 3px 15px rgba(0,0,0,0.4);
+	}
+
+	img {
+		display: inline-block;
+		vertical-align: top;
+		width: 100%;
+		height: auto;
+
+		@include bp(s) {
+			width: 250px;
+			height: 250px;
+		}
+	}
+
+	.card-text {
+		@include bp(s) {
+			display: inline-block;
+			vertical-align: top;
+			width: calc(100% - 280px);
+			margin-left: 20px;
+		}
+	}
+
+	.collapse {
+		padding: 10px 0;
+	}
+
+	h2.snug {
+		margin-bottom: 5px;
+	}
+
+	p.snug {
+		margin-top: 5px;
+	}
+}
+
+#footer {
+	width: 100%;
+	padding: 5px 0;
+	text-align: center;
+}
+
+
+/*#contact {
+	width: 100%;
+	min-height: 200px;
+	background-color: $text-color;
+	color: white;
+	text-align: center;
+	font-size: 1.2em;
+
+	.text-wrapper {
+		padding: 10px;
+
+		@include bp(l) {
+			margin: auto;
+			width: 900px;
+		}
+	}
+
+	ul {
+		padding-left: 0;
+		list-style-type: none;
+
+		li {
+			display: inline-block;
+		}
+	}
+}*/
+
