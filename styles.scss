@@ -93,7 +93,6 @@ a, a:hover, a:active, a:focus {
 h1, h2, h3, h4, h5, h6 {
 	font-family: $accent-font, monospace;
 	font-style: italic;
-	letter-spacing: -1px;
 	color: $accent-aqua;
 }
 
@@ -116,7 +115,7 @@ h2 {
 a.block {
 	position: relative;
 	bottom: 0;
-	padding: 1px 7px;
+	padding: 2px 8px;
 	box-shadow: 0 0 0 $accent-neon;
 	border-radius: 3px;
 	font-family: $plain-font, sans-serif;
@@ -129,7 +128,7 @@ a.block {
 
 	&:hover {
 		bottom: 3px;
-		box-shadow: 0 1px 5px $accent-neon;
+		box-shadow: 0 3px 3px $accent-aqua;
 	}
 }
 
@@ -149,9 +148,10 @@ a.block {
 	}
 
 	h1 {
-		margin-top: 10px;
-		font-size: 3em;
-		letter-spacing: -3px;
+		margin-top: 40px;
+		font-size: 2.5em;
+		letter-spacing: -2px;
+		font-weight: 200;
 
 		@include bp(m) {
 			font-size: 5em;
@@ -159,13 +159,14 @@ a.block {
 	}
 
 	h2 {
-		margin-bottom: 10px;
-		font-size: 1.5em;
+		margin-bottom: 40px;
+		font-size: 1.2em;
 		font-family: $plain-font, sans-serif;
 		font-style: normal;
+		font-weight: 400;
 
 		@include bp(m) {
-			font-size: 2em;
+			font-size: 1.5em;
 		}
 	}
 
@@ -179,16 +180,16 @@ a.block {
 
 	#portrait {
 		display: block;
-		width: 200px;
+		width: 160px;
 		height: auto;
 		margin: auto;
 		border-radius: 50%;
-		border: 5px solid $accent-neon;
+		border: 3px solid $accent-neon;
 		box-shadow: 0 5px 10px rgba(0,0,0,0.8);
 
 		@include bp(m) {
 			float: right;
-			margin-top: 10px;
+			margin-top: 60px;
 			margin-right: 50px;
 		}
 	}
