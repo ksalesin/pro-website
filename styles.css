@@ -1,6 +1,4 @@
 /* Variables */
-/* Navy */
-/* Old: 686de0 */
 /* Cross-browser transitions */
 /* Cross-browser transform */
 /* Cross-browser animation */
@@ -18,13 +16,11 @@ body {
 
 body {
   font-family: "IBM Plex Sans", sans-serif;
-  background-color: #0F0A3C;
-  color: #4F649C;
-  -webkit-transition: 2s;
-  -moz-transition: 2s;
-  -ms-transition: 2s;
-  -o-transition: 2s;
-  transition: 2s;
+  font-weight: 300;
+  color: #A0D9D4;
+  background: #0F0A3C url("images/diatoms-bkgd.png") no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 input:focus,
@@ -40,44 +36,76 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "IBM Plex Mono", monospace;
   font-style: italic;
   color: #00C4BB;
+  font-weight: 300;
 }
 
-h2 {
-  font-size: 1.1em;
-}
-
-.neon {
+.green {
   color: #B8FFA6;
+  font-weight: 400;
 }
 
 .aqua {
   color: #00C4BB;
+  font-weight: 400;
 }
 
-.plain {
-  color: #4F649C;
+.violet {
+  color: #D980FA;
+  font-weight: 400;
 }
 
-a.block {
+.intext-link {
+  color: #B8FFA6;
+  border-bottom: 2px solid #B8FFA6;
+  font-weight: 400;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+}
+.intext-link:hover {
+  color: white;
+  border-color: white;
+}
+
+.zap-link {
   position: relative;
-  bottom: 0;
-  padding: 2px 8px;
-  box-shadow: 0 0 0 #B8FFA6;
-  border-radius: 3px;
-  font-family: "IBM Plex Sans", sans-serif;
-  color: #0F0A3C;
-  background-color: #B8FFA6;
-  -webkit-transition: 0.2s;
-  -moz-transition: 0.2s;
-  -ms-transition: 0.2s;
-  -o-transition: 0.2s;
-  transition: 0.2s;
-  box-decoration-break: clone;
-  -webkit-box-decoration-break: clone;
+  padding: 5px 10px;
+  color: #B8FFA6;
+  font-weight: 400;
 }
-a.block:hover {
-  bottom: 3px;
-  box-shadow: 0 3px 3px #00C4BB;
+
+.zap-link-border {
+  display: block;
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  bottom: -3px;
+  left: -3px;
+  border: 3px solid #B8FFA6;
+  -webkit-clip-path: polygon(0% 0%, 0% 100%, 76% 100%, 25% 25%, 75% 25%, 75% 75%, 58% 75%, 76% 100%, 100% 100%, 100% 0%);
+  clip-path: polygon(0% 0%, 0% 100%, 76% 100%, 25% 25%, 75% 25%, 75% 75%, 58% 75%, 76% 100%, 100% 100%, 100% 0%);
+}
+
+.zap-link-in {
+  -webkit-animation: zapAnim2 0.5s 0.1s forwards;
+  -moz-animation: zapAnim2 0.5s 0.1s forwards;
+  -ms-animation: zapAnim2 0.5s 0.1s forwards;
+  -o-animation: zapAnim2 0.5s 0.1s forwards;
+  animation: zapAnim2 0.5s 0.1s forwards;
+}
+
+.zap-link-out {
+  -webkit-animation: zapAnim2-out 0.5s 0s forwards;
+  -moz-animation: zapAnim2-out 0.5s 0s forwards;
+  -ms-animation: zapAnim2-out 0.5s 0s forwards;
+  -o-animation: zapAnim2-out 0.5s 0s forwards;
+  animation: zapAnim2-out 0.5s 0s forwards;
+}
+
+.spacer {
+  top: 20px;
 }
 
 #hero {
@@ -107,7 +135,8 @@ a.block:hover {
   }
 }
 #hero h1 {
-  margin-top: 40px;
+  margin: 0 0 40px 0;
+  padding-left: 0;
   font-size: 2.5em;
   letter-spacing: -2px;
   font-weight: 200;
@@ -116,21 +145,7 @@ a.block:hover {
 }
 @media (min-width: 768px) {
   #hero h1 {
-    font-size: 5em;
-  }
-}
-#hero h2 {
-  margin-bottom: 40px;
-  font-size: 1.2em;
-  font-family: "IBM Plex Sans", sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  /*  Default <576px, portrait phones */
-  /* Landscape phones */
-}
-@media (min-width: 768px) {
-  #hero h2 {
-    font-size: 1.5em;
+    font-size: 5.5em;
   }
 }
 #hero p {
@@ -157,7 +172,6 @@ a.block:hover {
 @media (min-width: 768px) {
   #hero #portrait {
     float: right;
-    margin-top: 60px;
     margin-right: 50px;
   }
 }
@@ -168,7 +182,7 @@ a.block:hover {
   height: 75px;
   background-image: url("images/airplane-closed.png");
   background-size: 100% 100%;
-  margin: auto;
+  margin: 40px auto 0 auto;
   /*  Default <576px, portrait phones */
   /* Landscape phones */
 }
@@ -187,87 +201,261 @@ a.block:hover {
   font-size: 1.1em;
 }
 .section .text-wrapper {
-  padding: 10px;
   /*  Default <576px, portrait phones */
   /* Landscape phones */
 }
 @media (min-width: 992px) {
   .section .text-wrapper {
     margin: 0 auto;
-    width: 900px;
+    padding: 10px;
+    width: 1200px;
   }
 }
 .section .intro {
-  font-size: 1.2em;
+  padding-top: 20px;
+  font-size: 1.1em;
+  text-align: center;
+}
+.section h1 {
+  display: table;
+  position: relative;
+  margin: auto;
+  padding: 15px;
+  text-align: center;
+}
+.section h2 {
+  width: 100%;
+  font-size: 1.1em;
+  text-align: center;
+}
+.section ul {
+  margin: 60px 0;
 }
 .section ul li {
-  margin: 10px 0;
+  margin: 20px 0;
 }
 
-/* Cards (float up on hover) */
-.row-wrapper {
-  padding: 40px 0;
-}
-
-.card-container {
+.element-left, .element-right {
   position: relative;
-  bottom: 0;
-  width: calc(100% - 40px);
-  margin: 15px 0;
-  padding: 20px;
-  background-color: white;
-  border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-  -webkit-transition: 0.2s;
-  -moz-transition: 0.2s;
-  -ms-transition: 0.2s;
-  -o-transition: 0.2s;
-  transition: 0.2s;
+  margin: 60px 0;
+  /*  Default <576px, portrait phones */
+  /* Landscape phones */
 }
-.card-container:hover {
-  bottom: 3px;
-  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.4);
+@media (min-width: 992px) {
+  .element-left, .element-right {
+    width: 100%;
+    height: 400px;
+  }
 }
-.card-container img {
-  display: inline-block;
-  vertical-align: top;
+.element-left .element-img, .element-right .element-img {
   width: 100%;
-  height: auto;
+  height: 200px;
+  object-fit: cover;
   /*  Default <576px, portrait phones */
   /* Landscape phones */
 }
-@media (min-width: 576px) {
-  .card-container img {
-    width: 250px;
-    height: 250px;
+@media (min-width: 992px) {
+  .element-left .element-img, .element-right .element-img {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 70%;
+    height: 400px;
   }
 }
-.card-container .card-text {
+.element-left .element-text, .element-right .element-text {
+  text-align: center;
+  padding: 15px 15px 40px 15px;
+  background-color: rgba(9, 6, 36, 0.8);
   /*  Default <576px, portrait phones */
   /* Landscape phones */
 }
-@media (min-width: 576px) {
-  .card-container .card-text {
-    display: inline-block;
-    vertical-align: top;
-    width: calc(100% - 280px);
-    margin-left: 20px;
+@media (min-width: 992px) {
+  .element-left .element-text, .element-right .element-text {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translate(0, -50%);
+    -moz-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    -o-transform: translate(0, -50%);
+    transform: translate(0, -50%);
   }
 }
-.card-container .collapse {
-  padding: 10px 0;
+
+.element-left {
+  /*  Default <576px, portrait phones */
+  /* Landscape phones */
 }
-.card-container h2.snug {
-  margin-bottom: 5px;
+@media (min-width: 992px) {
+  .element-left .element-img {
+    left: 0;
+    right: 30%;
+  }
+  .element-left .element-text {
+    right: 0;
+    left: 30%;
+  }
 }
-.card-container p.snug {
-  margin-top: 5px;
+
+.element-right {
+  /*  Default <576px, portrait phones */
+  /* Landscape phones */
+}
+@media (min-width: 992px) {
+  .element-right .element-img {
+    left: 30%;
+    right: 0;
+  }
+  .element-right .element-text {
+    right: 30%;
+    left: 0;
+  }
 }
 
 #footer {
   width: 100%;
   padding: 5px 0;
   text-align: center;
+}
+
+/* Zap effect */
+.zap {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border: 4px solid #00C4BB;
+  -webkit-clip-path: inset(96% 20% 0 20%);
+  clip-path: inset(96% 20% 0 20%);
+}
+
+.zap-in {
+  -webkit-animation: zapAnim 1s 0.3s;
+  -moz-animation: zapAnim 1s 0.3s;
+  -ms-animation: zapAnim 1s 0.3s;
+  -o-animation: zapAnim 1s 0.3s;
+  animation: zapAnim 1s 0.3s;
+}
+
+@keyframes zapAnim {
+  0% {
+    -webkit-clip-path: inset(96% 20% 0 20%);
+    clip-path: inset(96% 20% 0 20%);
+  }
+  10% {
+    -webkit-clip-path: inset(96% 20% 0 0);
+    clip-path: inset(96% 20% 0 0);
+    border-color: #D980FA;
+  }
+  20% {
+    -webkit-clip-path: inset(96% 98% 0 0);
+    clip-path: inset(96% 98% 0 0);
+    border-color: #D980FA;
+  }
+  30% {
+    -webkit-clip-path: inset(0 98% 0 0);
+    clip-path: inset(0 98% 0 0);
+    border-color: #D980FA;
+  }
+  40% {
+    -webkit-clip-path: inset(0 98% 96% 0);
+    clip-path: inset(0 98% 96% 0);
+    border-color: #A0D9D4;
+  }
+  50% {
+    -webkit-clip-path: inset(0 0 96% 0);
+    clip-path: inset(0 0 96% 0);
+    border-color: #A0D9D4;
+  }
+  60% {
+    -webkit-clip-path: inset(0 0 96% 98%);
+    clip-path: inset(0 0 96% 98%);
+    border-color: #B8FFA6;
+  }
+  70% {
+    -webkit-clip-path: inset(0 0 0 98%);
+    clip-path: inset(0 0 0 98%);
+    border-color: #B8FFA6;
+  }
+  80% {
+    -webkit-clip-path: inset(96% 0 0 98%);
+    clip-path: inset(96% 0 0 98%);
+    border-color: #B8FFA6;
+  }
+  90% {
+    -webkit-clip-path: inset(96% 0 0 20%);
+    clip-path: inset(96% 0 0 20%);
+  }
+  100% {
+    -webkit-clip-path: inset(96% 20% 0 20%);
+    clip-path: inset(96% 20% 0 20%);
+  }
+}
+@keyframes zapAnim2 {
+  0% {
+    -webkit-clip-path: polygon(0% 0%, 0% 100%, 25% 100%, 25% 25%, 75% 25%, 74% 75%, 24% 76%, 24% 100%, 100% 100%, 100% 0%);
+    clip-path: polygon(0% 0%, 0% 100%, 25% 100%, 25% 25%, 75% 25%, 74% 75%, 24% 76%, 24% 100%, 100% 100%, 100% 0%);
+    border-color: #B8FFA6;
+  }
+  30% {
+    -webkit-clip-path: polygon(0% 0%, 0% 100%, 25% 100%, 25% 25%, 75% 25%, 74% 75%, 74% 75%, 73% 100%, 100% 100%, 100% 0%);
+    clip-path: polygon(0% 0%, 0% 100%, 25% 100%, 25% 25%, 75% 25%, 74% 75%, 74% 75%, 73% 100%, 100% 100%, 100% 0%);
+    border-color: #B8FFA6;
+  }
+  40% {
+    -webkit-clip-path: polygon(0% 0%, 0% 100%, 25% 100%, 25% 25%, 75% 25%, 73% 24%, 74% 25%, 74% 24%, 100% 24%, 100% 0%);
+    clip-path: polygon(0% 0%, 0% 100%, 25% 100%, 25% 25%, 75% 25%, 73% 24%, 74% 25%, 74% 24%, 100% 24%, 100% 0%);
+    border-color: #00C4BB;
+  }
+  60% {
+    -webkit-clip-path: polygon(0% 0%, 0% 100%, 25% 100%, 25% 25%, 25% 25%, 25% 26%, 26% 25%, 26% 25%, 25% 26%, 26% 0);
+    clip-path: polygon(0% 0%, 0% 100%, 25% 100%, 25% 25%, 25% 25%, 25% 26%, 26% 25%, 26% 25%, 25% 26%, 26% 0);
+    border-color: #00C4BB;
+  }
+  80% {
+    -webkit-clip-path: polygon(0 75%, 0% 100%, 25% 100%, 25% 76%, 24% 75%, 25% 76%, 25% 75%, 24% 75%, 25% 76%, 26% 75%);
+    clip-path: polygon(0 75%, 0% 100%, 25% 100%, 25% 76%, 24% 75%, 25% 76%, 25% 75%, 24% 75%, 25% 76%, 26% 75%);
+    border-color: #D980FA;
+  }
+  100% {
+    -webkit-clip-path: polygon(19% 76%, 18% 100%, 81% 100%, 81% 74%, 79% 75%, 80% 75%, 80% 75%, 80% 75%, 80% 76%, 79% 75%);
+    clip-path: polygon(19% 76%, 18% 100%, 81% 100%, 81% 74%, 79% 75%, 80% 75%, 80% 75%, 80% 75%, 80% 76%, 79% 75%);
+    border-color: #D980FA;
+  }
+}
+@keyframes zapAnim2-out {
+  0% {
+    -webkit-clip-path: polygon(19% 76%, 18% 100%, 81% 100%, 81% 74%, 79% 75%, 80% 75%, 80% 75%, 80% 75%, 80% 76%, 79% 75%);
+    clip-path: polygon(19% 76%, 18% 100%, 81% 100%, 81% 74%, 79% 75%, 80% 75%, 80% 75%, 80% 75%, 80% 76%, 79% 75%);
+    border-color: #D980FA;
+  }
+  20% {
+    -webkit-clip-path: polygon(0 75%, 0% 100%, 25% 100%, 25% 76%, 24% 75%, 25% 76%, 25% 75%, 24% 75%, 25% 76%, 26% 75%);
+    clip-path: polygon(0 75%, 0% 100%, 25% 100%, 25% 76%, 24% 75%, 25% 76%, 25% 75%, 24% 75%, 25% 76%, 26% 75%);
+    border-color: #D980FA;
+  }
+  40% {
+    -webkit-clip-path: polygon(0% 0%, 0% 100%, 25% 100%, 25% 25%, 25% 25%, 25% 26%, 26% 25%, 26% 25%, 25% 26%, 26% 0);
+    clip-path: polygon(0% 0%, 0% 100%, 25% 100%, 25% 25%, 25% 25%, 25% 26%, 26% 25%, 26% 25%, 25% 26%, 26% 0);
+    border-color: #00C4BB;
+  }
+  60% {
+    -webkit-clip-path: polygon(0% 0%, 0% 100%, 25% 100%, 25% 25%, 75% 25%, 73% 24%, 74% 25%, 74% 24%, 100% 24%, 100% 0%);
+    clip-path: polygon(0% 0%, 0% 100%, 25% 100%, 25% 25%, 75% 25%, 73% 24%, 74% 25%, 74% 24%, 100% 24%, 100% 0%);
+    border-color: #00C4BB;
+  }
+  70% {
+    -webkit-clip-path: polygon(0% 0%, 0% 100%, 25% 100%, 25% 25%, 75% 25%, 74% 75%, 74% 75%, 73% 100%, 100% 100%, 100% 0%);
+    clip-path: polygon(0% 0%, 0% 100%, 25% 100%, 25% 25%, 75% 25%, 74% 75%, 74% 75%, 73% 100%, 100% 100%, 100% 0%);
+    border-color: #B8FFA6;
+  }
+  100% {
+    -webkit-clip-path: polygon(0% 0%, 0% 100%, 25% 100%, 25% 25%, 75% 25%, 74% 75%, 24% 76%, 24% 100%, 100% 100%, 100% 0%);
+    clip-path: polygon(0% 0%, 0% 100%, 25% 100%, 25% 25%, 75% 25%, 74% 75%, 24% 76%, 24% 100%, 100% 100%, 100% 0%);
+    border-color: #B8FFA6;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */

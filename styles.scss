@@ -2,10 +2,12 @@
 $accent-font: 'IBM Plex Mono';
 $plain-font: 'IBM Plex Sans';
 
-$bg-color: #0F0A3C; /* Navy */
-$text-color: #4F649C; /* Old: 686de0 */
+$bg-color: #0F0A3C;
+$bg-element-color: rgba(9,6,36,0.8);
+$text-color: #A0D9D4;
 $accent-aqua: #00C4BB;
-$accent-neon: #B8FFA6;
+$accent-green: #B8FFA6;
+$accent-violet: #D980FA;
 
 /* Cross-browser transitions */
 @mixin transition ($args...) {
@@ -44,6 +46,11 @@ $accent-neon: #B8FFA6;
     background: linear-gradient($color1, $color2);
 }
 
+@mixin clippath($args...) {
+	-webkit-clip-path: $args;
+	clip-path: $args;
+}
+
 /* Media query breakpoints */
 @mixin bp($size) {
 	/*  Default <576px, portrait phones */
@@ -76,9 +83,11 @@ body {
 
 body {
 	font-family: $plain-font, sans-serif;
-	background-color: $bg-color;
+	font-weight: 300;
 	color: $text-color;
-	@include transition(2.0s);
+	background: $bg-color url("images/diatoms-bkgd.png") no-repeat center center;
+	background-size: cover;
+	background-attachment: fixed;
 }
 
 input:focus,
@@ -94,42 +103,62 @@ h1, h2, h3, h4, h5, h6 {
 	font-family: $accent-font, monospace;
 	font-style: italic;
 	color: $accent-aqua;
+	font-weight: 300;
 }
 
-h2 {
-	font-size: 1.1em;
-}
-
-.neon {
-	color: $accent-neon;
+.green {
+	color: $accent-green;
+	font-weight: 400;
 }
 
 .aqua {
 	color: $accent-aqua;
+	font-weight: 400;
 }
 
-.plain {
-	color: $text-color;
+.violet {
+	color: $accent-violet;
+	font-weight: 400;
 }
 
-a.block {
-	position: relative;
-	bottom: 0;
-	padding: 2px 8px;
-	box-shadow: 0 0 0 $accent-neon;
-	border-radius: 3px;
-	font-family: $plain-font, sans-serif;
-	color: $bg-color;
-	background-color: $accent-neon;
-	@include transition(.2s);
+.intext-link {
+	color: $accent-green;
+	border-bottom: 2px solid $accent-green;
+	font-weight: 400;
 
-	box-decoration-break: clone;
-	-webkit-box-decoration-break: clone;
+	@include transition(0.5s);
 
 	&:hover {
-		bottom: 3px;
-		box-shadow: 0 3px 3px $accent-aqua;
+		color: white;
+		border-color: white;
 	}
+}
+
+.zap-link {
+	position: relative;
+	padding: 5px 10px;
+	color: $accent-green;
+	font-weight: 400;
+}
+
+.zap-link-border {
+	display: block;
+	position: absolute;
+	top: -3px; right: -3px; bottom: -3px; left: -3px;
+	border: 3px solid $accent-green;
+	@include clippath(polygon(0% 0%, 0% 100%, 76% 100%, 25% 25%, 75% 25%, 75% 75%, 58% 75%, 76% 100%, 100% 100%, 100% 0%));
+}
+
+.zap-link-in {
+	@include animation(zapAnim2 0.5s 0.1s forwards);
+}
+
+.zap-link-out {
+	@include animation(zapAnim2-out 0.5s 0s forwards);
+}
+
+.spacer {
+	top: 20px;
 }
 
 #hero {
@@ -148,25 +177,14 @@ a.block {
 	}
 
 	h1 {
-		margin-top: 40px;
+		margin: 0 0 40px 0;
+		padding-left: 0;
 		font-size: 2.5em;
 		letter-spacing: -2px;
 		font-weight: 200;
 
 		@include bp(m) {
-			font-size: 5em;
-		}
-	}
-
-	h2 {
-		margin-bottom: 40px;
-		font-size: 1.2em;
-		font-family: $plain-font, sans-serif;
-		font-style: normal;
-		font-weight: 400;
-
-		@include bp(m) {
-			font-size: 1.5em;
+			font-size: 5.5em;
 		}
 	}
 
@@ -184,12 +202,11 @@ a.block {
 		height: auto;
 		margin: auto;
 		border-radius: 50%;
-		border: 3px solid $accent-neon;
+		border: 3px solid $accent-green;
 		box-shadow: 0 5px 10px rgba(0,0,0,0.8);
 
 		@include bp(m) {
 			float: right;
-			margin-top: 60px;
 			margin-right: 50px;
 		}
 	}
@@ -201,7 +218,7 @@ a.block {
 	height: 75px;
 	background-image: url("images/airplane-closed.png");
 	background-size: 100% 100%;
-	margin: auto;
+	margin: 40px auto 0 auto;
 
 	&:hover {
 		background-image: url("images/airplane-open.png");
@@ -218,78 +235,103 @@ a.block {
 	font-size: 1.1em;
 
 	.text-wrapper {
-		padding: 10px;
-
 		@include bp(l) {
 			margin: 0 auto;
-			width: 900px;
+			padding: 10px;
+			width: 1200px;
 		}
 	}
 
 	.intro {
-		font-size: 1.2em;
+		padding-top: 20px;
+		font-size: 1.1em;
+		text-align: center;
+	}
+
+	h1 {
+		display: table;
+		position: relative;
+		margin: auto;
+		padding: 15px;
+		text-align: center;
+	}
+
+	h2 {
+		width: 100%;
+		font-size: 1.1em;
+		text-align: center;
 	}
 
 	ul {
+		margin: 60px 0;
+
 		li {
-			margin: 10px 0;
+			margin: 20px 0;
 		}
 	}
 }
 
-/* Cards (float up on hover) */
-
-.row-wrapper {
-	padding: 40px 0;
-}
-
-.card-container {
+.element-left, .element-right {
 	position: relative;
-	bottom: 0;
-	width: calc(100% - 40px);
-	margin: 15px 0;
-	padding: 20px;
-	background-color: white;
-	border-radius: 5px;
-	box-shadow: 0 0 15px rgba(0,0,0,0.3);
-	@include transition(.2s);
+	margin: 60px 0;
 
-	&:hover {
-		bottom: 3px;
-		box-shadow: 0 3px 15px rgba(0,0,0,0.4);
-	}
-
-	img {
-		display: inline-block;
-		vertical-align: top;
+	@include bp(l) {
 		width: 100%;
-		height: auto;
+		height: 400px;
+	}
 
-		@include bp(s) {
-			width: 250px;
-			height: 250px;
+	.element-img {
+		width: 100%;
+		height: 200px;
+		object-fit: cover;
+
+		@include bp(l) {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			width: 70%;
+			height: 400px;
 		}
 	}
 
-	.card-text {
-		@include bp(s) {
-			display: inline-block;
-			vertical-align: top;
-			width: calc(100% - 280px);
-			margin-left: 20px;
+	.element-text {
+		text-align: center;
+		padding: 15px 15px 40px 15px;
+		background-color: $bg-element-color;
+
+		@include bp(l) {
+			position: absolute;
+			top: 50%;
+			@include transform(translate(0, -50%));
 		}
 	}
+}
 
-	.collapse {
-		padding: 10px 0;
+.element-left {
+	@include bp(l) {
+		.element-img {
+			left: 0;
+			right: 30%;
+		}
+
+		.element-text {
+			right: 0;
+			left: 30%;
+		}
 	}
+}
 
-	h2.snug {
-		margin-bottom: 5px;
-	}
+.element-right {
+	@include bp(l) {
+		.element-img {
+			left: 30%;
+			right: 0;
+		}
 
-	p.snug {
-		margin-top: 5px;
+		.element-text {
+			right: 30%;
+			left: 0;
+		}
 	}
 }
 
@@ -297,4 +339,49 @@ a.block {
 	width: 100%;
 	padding: 5px 0;
 	text-align: center;
+}
+
+/* Zap effect */
+.zap {
+	display: block;
+	position: absolute;
+	top: 0; right: 0; bottom: 0; left: 0;
+	border: 4px solid $accent-aqua;
+	@include clippath(inset(96% 20% 0 20%));
+}
+
+.zap-in {
+	@include animation(zapAnim 1s 0.3s);
+}
+
+@keyframes zapAnim {
+	0% { @include clippath(inset(96% 20% 0 20%)); }
+	10% { @include clippath(inset(96% 20% 0 0)); border-color: $accent-violet;}
+	20% { @include clippath(inset(96% 98% 0 0)); border-color: $accent-violet;}
+	30% { @include clippath(inset(0 98% 0 0)); border-color: $accent-violet;}
+	40% { @include clippath(inset(0 98% 96% 0)); border-color: $text-color;}
+	50% { @include clippath(inset(0 0 96% 0)); border-color: $text-color;}
+	60% { @include clippath(inset(0 0 96% 98%)); border-color: $accent-green;}
+	70% { @include clippath(inset(0 0 0 98%)); border-color: $accent-green;}
+	80% { @include clippath(inset(96% 0 0 98%)); border-color: $accent-green;}
+	90% { @include clippath(inset(96% 0 0 20%)); }
+	100% { @include clippath(inset(96% 20% 0 20%)); }
+}
+
+@keyframes zapAnim2 {
+	0% { @include clippath(polygon(0% 0%, 0% 100%, 25% 100%, 25% 25%, 75% 25%, 74% 75%, 24% 76%, 24% 100%, 100% 100%, 100% 0%)); border-color: $accent-green;}
+	30% { @include clippath(polygon(0% 0%, 0% 100%, 25% 100%, 25% 25%, 75% 25%, 74% 75%, 74% 75%, 73% 100%, 100% 100%, 100% 0%)); border-color: $accent-green;}
+	40% { @include clippath(polygon(0% 0%, 0% 100%, 25% 100%, 25% 25%, 75% 25%, 73% 24%, 74% 25%, 74% 24%, 100% 24%, 100% 0%)); border-color: $accent-aqua;}
+	60% { @include clippath(polygon(0% 0%, 0% 100%, 25% 100%, 25% 25%, 25% 25%, 25% 26%, 26% 25%, 26% 25%, 25% 26%, 26% 0)); border-color: $accent-aqua;}
+	80% { @include clippath(polygon(0 75%, 0% 100%, 25% 100%, 25% 76%, 24% 75%, 25% 76%, 25% 75%, 24% 75%, 25% 76%, 26% 75%)); border-color: $accent-violet;}
+	100% { @include clippath(polygon(19% 76%, 18% 100%, 81% 100%, 81% 74%, 79% 75%, 80% 75%, 80% 75%, 80% 75%, 80% 76%, 79% 75%)); border-color: $accent-violet;}
+}
+
+@keyframes zapAnim2-out {
+	0% { @include clippath(polygon(19% 76%, 18% 100%, 81% 100%, 81% 74%, 79% 75%, 80% 75%, 80% 75%, 80% 75%, 80% 76%, 79% 75%)); border-color: $accent-violet;}
+	20% { @include clippath(polygon(0 75%, 0% 100%, 25% 100%, 25% 76%, 24% 75%, 25% 76%, 25% 75%, 24% 75%, 25% 76%, 26% 75%)); border-color: $accent-violet;}
+	40% { @include clippath(polygon(0% 0%, 0% 100%, 25% 100%, 25% 25%, 25% 25%, 25% 26%, 26% 25%, 26% 25%, 25% 26%, 26% 0)); border-color: $accent-aqua;}
+	60% { @include clippath(polygon(0% 0%, 0% 100%, 25% 100%, 25% 25%, 75% 25%, 73% 24%, 74% 25%, 74% 24%, 100% 24%, 100% 0%)); border-color: $accent-aqua;}
+	70% { @include clippath(polygon(0% 0%, 0% 100%, 25% 100%, 25% 25%, 75% 25%, 74% 75%, 74% 75%, 73% 100%, 100% 100%, 100% 0%)); border-color: $accent-green;}
+	100% { @include clippath(polygon(0% 0%, 0% 100%, 25% 100%, 25% 25%, 75% 25%, 74% 75%, 24% 76%, 24% 100%, 100% 100%, 100% 0%)); border-color: $accent-green;}
 }
