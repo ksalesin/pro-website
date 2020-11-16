@@ -119,6 +119,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 #hero .text-wrapper {
+  padding: 10px;
   /*  Default <576px, portrait phones */
   /* Landscape phones */
 }
@@ -143,7 +144,7 @@ h1, h2, h3, h4, h5, h6 {
   /*  Default <576px, portrait phones */
   /* Landscape phones */
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   #hero h1 {
     font-size: 5.5em;
   }
@@ -153,7 +154,7 @@ h1, h2, h3, h4, h5, h6 {
   /*  Default <576px, portrait phones */
   /* Landscape phones */
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   #hero p {
     font-size: 1.5em;
   }
@@ -169,10 +170,11 @@ h1, h2, h3, h4, h5, h6 {
   /*  Default <576px, portrait phones */
   /* Landscape phones */
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   #hero #portrait {
     float: right;
-    margin-right: 50px;
+    margin-top: -10px;
+    margin-right: 200px;
   }
 }
 
@@ -332,11 +334,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .zap-in {
-  -webkit-animation: zapAnim 1s 0.3s;
-  -moz-animation: zapAnim 1s 0.3s;
-  -ms-animation: zapAnim 1s 0.3s;
-  -o-animation: zapAnim 1s 0.3s;
-  animation: zapAnim 1s 0.3s;
+  -webkit-animation: zapAnim 1s 0.5s;
+  -moz-animation: zapAnim 1s 0.5s;
+  -ms-animation: zapAnim 1s 0.5s;
+  -o-animation: zapAnim 1s 0.5s;
+  animation: zapAnim 1s 0.5s;
 }
 
 @keyframes zapAnim {

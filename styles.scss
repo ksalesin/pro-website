@@ -168,6 +168,8 @@ h1, h2, h3, h4, h5, h6 {
 	}
 
 	.text-wrapper {
+		padding: 10px;
+
 		@include bp(l) {
 			position: absolute;
 			top: 50%;
@@ -183,7 +185,7 @@ h1, h2, h3, h4, h5, h6 {
 		letter-spacing: -2px;
 		font-weight: 200;
 
-		@include bp(m) {
+		@include bp(l) {
 			font-size: 5.5em;
 		}
 	}
@@ -191,7 +193,7 @@ h1, h2, h3, h4, h5, h6 {
 	p {
 		font-size: 1.2em;
 
-		@include bp(m) {
+		@include bp(l) {
 			font-size: 1.5em;
 		}
 	}
@@ -205,9 +207,10 @@ h1, h2, h3, h4, h5, h6 {
 		border: 3px solid $accent-green;
 		box-shadow: 0 5px 10px rgba(0,0,0,0.8);
 
-		@include bp(m) {
+		@include bp(l) {
 			float: right;
-			margin-right: 50px;
+			margin-top: -10px;
+			margin-right: 200px;
 		}
 	}
 }
@@ -351,7 +354,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .zap-in {
-	@include animation(zapAnim 1s 0.3s);
+	@include animation(zapAnim 1s 0.5s);
 }
 
 @keyframes zapAnim {
