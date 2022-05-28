@@ -1,0 +1,3 @@
+# Permanently direct old website pages to the new ones
+# FORMAT: Old url / New url / HTTP Status code
+# e.g. /about.html                                         /about/                                                                                                 301

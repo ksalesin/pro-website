@@ -1,0 +1,15 @@
+# from https://github.com/tannerdolby/tannerdolby.com/blob/master/.gitignore
+# Node 
+/node_modules
+
+# Eleventy site output 
+_site
+
+# Auto-compiled CSS (from SCSS)
+src/_includes/css
+
+# Ignore cached static API from eleventy-cache-assets
+.cache
+
+# DS_Store
+.DS_Store
