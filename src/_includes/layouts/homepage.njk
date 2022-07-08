@@ -1,9 +1,137 @@
 {% extends "layouts/_common.njk" %}
 
 {% block main %}
-    <!-- nunjucks reads this from the content (below the yaml) of about.html -->
-    <div>
-        <h1>Test</h1>
+    <div class="hero">
+        <div class="section hero-content">
+            <img id="portrait" src="files/site/kate.jpg">
+            <h1>katherine salesin</h1>
+            <div class="hr"></div>
+            <p>I am a Ph.D. student at Dartmouth College and NASA Fellow doing research in physically based rendering, advised by <a class="zap-link" href="https://cs.dartmouth.edu/~wjarosz/" target="_blank"><span class="zap-link-border"></span>Wojciech Jarosz</a>. Prior to my Ph.D., I received my B.A. in Computer Science with a minor in Marine Biology from Cornell University. My current research is on the fusion of physically based rendering in computer graphics with radiative transfer problems in other scientific fields such as oceanography, atmospheric science, and astronomy. I find projects that encourage going outside and exploring the real world particularly exciting. I also serve on the Executive Committee of <a class="zap-link" href="https://www.wigraph.org" target="_blank"><span class="zap-link-border"></span>WiGRAPH</a>.</p>
+            <p>Outside of the lab, I enjoy sailing, volleyball, skiing, knitting and <a class="zap-link" href="https://knitquations.com" target="_blank"><span class="zap-link-border"></span>designing knitwear</a>, sewing, woodworking, and statskeeping for Dartmouth volleyball and hockey.</p>
+
+            <div class="spacer"></div>
+            <ul class="hz-link-list">
+                <a class="zap-link" href="#publications"><li><span class="zap-link-border"></span>Publications</li></a>
+                <a class="zap-link" href="#"><li><span class="zap-link-border"></span>Teaching</li></a>
+                <a class="zap-link" href="#"><li><span class="zap-link-border"></span>Fun</li></a>
+                <a class="zap-link" href="/files/site/Salesin_Katherine_CV.pdf" target="_blank"><li><span class="zap-link-border"></span>CV</li></a>
+            </ul>
+            <a href="mailto:katherine.a.salesin.gr@dartmouth.edu"><span id="airplane"></span></a>
+        </div>
     </div>
 
+    <div id="publications" class="section">
+        <h1>publications</h1>
+        <div class="hr"></div>
+
+        <div class="grid">
+            {% for pub in collections.publications | reverse %}
+                <div class="grid-item grid-item-{{ loop.index }}">
+                    <img src="{{ pub.data.teaser_image }}">
+                    <div class="grid-text">
+                        <p>
+                        {{ pub.data.title }}. {{ pub.data.authors }}. {{ pub.data.journal }}. {{ pub.data.date_fancy }}.
+                        </p>
+
+                        <ul class="hz-link-list">
+                            {% if pub.data.paper_link %}
+                                <a class="zap-link" href="{{ pub.data.paper_link }}" target="_blank"><li><span class="zap-link-border"></span>Paper</li></a>
+                            {% endif %}
+                            {% if pub.data.pub_link %}
+                                <a class="zap-link" href="{{ pub.data.pub_link }}" target="_blank"><li><span class="zap-link-border"></span>DOI</li></a>
+                            {% endif %}
+                            {% if pub.data.supp_link %}
+                                <a class="zap-link" href="{{ pub.data.supp_link }}" target="_blank"><li><span class="zap-link-border"></span>Supplemental</li></a>
+                            {% endif %}
+                            {% if pub.data.slides_link %}
+                                <a class="zap-link" href="{{ pub.data.slides_link }}" target="_blank"><li><span class="zap-link-border"></span>Slides</li></a>
+                            {% endif %}
+                            {% if pub.data.video_link %}
+                                <a class="zap-link" href="{{ pub.data.video_link }}" target="_blank"><li><span class="zap-link-border"></span>Video</li></a>
+                            {% endif %}
+                            {% if pub.data.code_link %}
+                                <a class="zap-link" href="{{ pub.data.code_link }}" target="_blank"><li><span class="zap-link-border"></span>Code</li></a>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div id="teaching" class="section">
+        <h1>teaching</h1>
+        <div class="hr"></div>
+        <p>
+        I am very interested in finding creative, engaging, and effective teaching tools for computer science and other scientific fields. <a class="zap-link" href="/files/site/Salesin_Teaching_Statement.pdf" target="_blank"><span class="zap-link-border"></span>Teaching Statement</a>
+        </p>
+        <div class="spacer"></div>
+
+        <div class="grid">
+            {% for proj in collections.teaching_projects %}
+                <div class="grid-item grid-item-{{ loop.index }}">
+                    <div class="img-spacer">
+                        <img src="{{ proj.data.teaser_image }}">
+                    </div>
+                    <div class="grid-text">
+                        <h3>{{ proj.data.title }}</h3>
+                        <p>{{ proj.data.description }}</p>
+
+                        <ul class="hz-link-list">
+                            {% if proj.data.link %}
+                                <a class="zap-link" href="{{ proj.data.link }}" target="_blank"><li><span class="zap-link-border"></span>{{ proj.data.link_title }}</li></a>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div id="fun" class="section">
+        <h1>fun</h1>
+        <div class="hr"></div>
+        <p>
+        These are some projects I have worked on for fun.
+        </p>
+        <div class="spacer"></div>
+
+        <div class="grid">
+            {% for proj in collections.fun_projects %}
+                <div class="grid-item grid-item-{{ loop.index }}">
+                    <div class="img-spacer">
+                        <img src="{{ proj.data.teaser_image }}">
+                    </div>
+                    <div class="grid-text">
+                        <h3>{{ proj.data.title }}</h3>
+                        <p>{{ proj.data.description }}</p>
+
+                        <ul class="hz-link-list">
+                            {% if proj.data.link %}
+                                <a class="zap-link" href="{{ proj.data.link }}" target="_blank"><li><span class="zap-link-border"></span>{{ proj.data.link_title }}</li></a>
+                            {% endif %}
+                            {% if proj.data.link2 %}
+                                <a class="zap-link" href="{{ proj.data.link2 }}" target="_blank"><li><span class="zap-link-border"></span>{{ proj.data.link_title2 }}</li></a>
+                            {% endif %}
+                            {% if proj.data.link3 %}
+                                <a class="zap-link" href="{{ proj.data.link3 }}" target="_blank"><li><span class="zap-link-border"></span>{{ proj.data.link_title3 }}</li></a>
+                            {% endif %}
+                            {% if proj.data.link4 %}
+                                <a class="zap-link" href="{{ proj.data.link4 }}" target="_blank"><li><span class="zap-link-border"></span>{{ proj.data.link_title4 }}</li></a>
+                            {% endif %}
+                            {% if proj.data.link5 %}
+                                <a class="zap-link" href="{{ proj.data.link5 }}" target="_blank"><li><span class="zap-link-border"></span>{{ proj.data.link_title5 }}</li></a>
+                            {% endif %}
+                            {% if proj.data.link6 %}
+                                <a class="zap-link" href="{{ proj.data.link6 }}" target="_blank"><li><span class="zap-link-border"></span>{{ proj.data.link_title6 }}</li></a>
+                            {% endif %}
+                            {% if proj.data.link7 %}
+                                <a class="zap-link" href="{{ proj.data.link7 }}" target="_blank"><li><span class="zap-link-border"></span>{{ proj.data.link_title7 }}</li></a>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}

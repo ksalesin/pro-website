@@ -1,0 +1,78 @@
+// Fonts
+$main-font: skolar-sans-latin, sans-serif;
+$main-font-size: 18px;
+
+// Colors
+$background-color: #ededed;
+$main-text-color: #001437;
+
+$yellow-lime: #fef900;
+$lime: #b8fb3c;
+$turq: #03dddc;
+$violet: #7d5fff;
+// $violet: #c56cf0;
+$fuschia: #fa3bf5;
+$pink: #ff1493;
+
+/* Cross-browser transitions */
+@mixin transition ($args...) {
+    -webkit-transition: $args;
+    -moz-transition: $args;
+    -ms-transition: $args;
+    -o-transition: $args;
+    transition: $args;
+  }
+  
+  /* Cross-browser transform */
+  @mixin transform ($args...) {
+    -webkit-transform: $args;
+    -moz-transform: $args;
+    -ms-transform: $args;
+    -o-transform: $args;
+    transform: $args;
+  }
+  
+  /* Cross-browser animation */
+  /* Must exist @keyframes element of matching name defining animation */
+  @mixin animation ($args...) {
+    -webkit-animation: $args; 
+    -moz-animation: $args;
+    -ms-animation: $args;
+    -o-animation: $args;
+    animation: $args;
+  }
+  
+  /* Cross-browser background gradient, top to bottom */
+  @mixin gradient ($color1, $color2) {
+      background: $color1; /* For browsers that do not support gradients */
+      background: -webkit-linear-gradient($color1, $color2);
+      background: -o-linear-gradient($color1, $color2);
+      background: -moz-linear-gradient($color1, $color2);
+      background: linear-gradient($color1, $color2);
+  }
+  
+  @mixin clippath($args...) {
+      -webkit-clip-path: $args;
+      clip-path: $args;
+  }
+  
+  /* Media query breakpoints */
+  @mixin bp($size) {
+      /*  Default <576px, portrait phones */
+      /* Landscape phones */
+      @if $size == s {
+          @media (min-width: 576px) { @content; }
+      }
+      /* Tablets */
+      @else if $size == m {
+          @media (min-width: 768px) { @content; }
+      }
+      /* Desktops */
+      @else if $size == l {
+          @media (min-width: 992px) { @content; }
+      }
+      /* Large desktops */
+      @else if $size == xl {
+          @media (min-width: 1200px) { @content; }
+      }
+  }

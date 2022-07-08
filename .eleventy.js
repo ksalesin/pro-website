@@ -6,7 +6,7 @@ module.exports = (eleventyConfig) => {
 
     // Run manual file passthrough copy
     eleventyConfig.addPassthroughCopy("./src/_includes/css");
-    eleventyConfig.addPassthroughCopy("./src/images");
+    eleventyConfig.addPassthroughCopy("./src/files");
     eleventyConfig.addPassthroughCopy("./src/_includes/js");
     eleventyConfig.addPassthroughCopy("./src/_redirects");
 
