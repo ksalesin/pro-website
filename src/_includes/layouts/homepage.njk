@@ -29,8 +29,9 @@
                 <div class="grid-item grid-item-{{ loop.index }}">
                     <img src="{{ pub.data.teaser_image }}">
                     <div class="grid-text">
+                        <h4>{{ pub.data.title }}</h4>
                         <p>
-                        {{ pub.data.title }}. {{ pub.data.authors }}. {{ pub.data.journal }}. {{ pub.data.date_fancy }}.
+                        {{ pub.data.authors }}. {{ pub.data.journal }}. {{ pub.data.date_fancy }}.
                         </p>
 
                         <ul class="hz-link-list">
@@ -74,7 +75,7 @@
                         <img src="{{ proj.data.teaser_image }}">
                     </div>
                     <div class="grid-text">
-                        <h3>{{ proj.data.title }}</h3>
+                        <h4>{{ proj.data.title }}</h4>
                         <p>{{ proj.data.description }}</p>
 
                         <ul class="hz-link-list">
@@ -103,7 +104,7 @@
                         <img src="{{ proj.data.teaser_image }}">
                     </div>
                     <div class="grid-text">
-                        <h3>{{ proj.data.title }}</h3>
+                        <h4>{{ proj.data.title }}</h4>
                         <p>{{ proj.data.description }}</p>
 
                         <ul class="hz-link-list">
