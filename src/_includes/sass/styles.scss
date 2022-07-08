@@ -11,10 +11,12 @@ body {
     min-height: 100vh;
     
     .hero-content {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translateX(-50%) translateY(-50%);
+		@include bp(m) {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translateX(-50%) translateY(-50%);	
+		}
 
 		#portrait {
 			display: block;
@@ -24,7 +26,7 @@ body {
 			border-radius: 50%;
 			border: 3px solid white;
 	
-			@include bp(l) {
+			@include bp(m) {
 				float: right;
 				margin-top: -35px;
 				margin-right: 20px;
@@ -43,7 +45,7 @@ body {
 				background-image: url("https://cs.dartmouth.edu/~ksalesin/files/site/airplane-open.png");
 			}
 
-			@include bp(l) {
+			@include bp(m) {
 				display: inline-block;
 			}
 		}
@@ -77,11 +79,14 @@ body {
 }
 
 .section {
-	max-width: 700px;
-	margin: auto;
+	box-sizing: border-box;
+	padding: 10px;
 
-	@include bp(l) {
+	@include bp(m) {
+		max-width: 768px;
+		margin: auto;
 		margin-bottom: 100px;
+		padding: 0px;
 	}
 
 	h1 {
@@ -89,7 +94,7 @@ body {
 		font-size: 2.5rem;
 		font-weight: 100;
 
-		@include bp(l) {
+		@include bp(m) {
 			font-size: 3rem;
 		}
 	}
@@ -104,10 +109,13 @@ body {
 	}
 }
 
-.grid {
+.grid {	
 	.grid-item {
+		box-sizing: border-box;
 		width: 100%;
 		margin-top: 20px;
+		margin-left: 0px;
+		margin-right: 0px;
 		padding: 20px;
 		// background-color: white;
 		border-radius: 15px;
@@ -116,9 +124,10 @@ body {
 		@include transition(0.5s);
 
 		.grid-text {
+			margin-left: 140px;
 			line-height: 1.75rem;
 
-			@include bp(l) {
+			@include bp(m) {
 				margin-left: 180px;
 			}
 
@@ -136,9 +145,14 @@ body {
 
 		img {
 			float: left;
-			width: 160px;
-			height: 160px;
+			width: 120px;
+			height: 120px;
 			object-fit: cover;
+
+			@include bp(m) {
+				width: 160px;
+				height: 160px;
+			}
 		}
 
 		.img-spacer {
@@ -165,7 +179,7 @@ body {
 .zap-link-border {
 	border: 3px solid white;
 
-	@include bp(l) {
+	@include bp(m) {
 		display: block;
 		position: absolute;
 		top: -3px; right: -3px; bottom: -3px; left: -3px;
