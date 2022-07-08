@@ -11,11 +11,21 @@ body {
     min-height: 100vh;
     
     .hero-content {
-		@include bp(m) {
+		@include bp(l) {
 			position: absolute;
 			top: 50%;
 			left: 50%;
 			transform: translateX(-50%) translateY(-50%);	
+		}
+
+		h1 {
+			white-space: nowrap;
+		}
+
+		.hr {
+			min-width: 300px;
+			max-width: 500px;
+			width: 70%;
 		}
 
 		#portrait {
@@ -26,7 +36,7 @@ body {
 			border-radius: 50%;
 			border: 3px solid white;
 	
-			@include bp(m) {
+			@include bp(l) {
 				float: right;
 				margin-top: -35px;
 				margin-right: 20px;
@@ -34,19 +44,15 @@ body {
 		}
 
 		#airplane {
-			display: block;
+			float: right;
 			width: 60px;
 			height: 60px;
 			background-image: url("https://cs.dartmouth.edu/~ksalesin/files/site/airplane-closed.png");
 			background-size: 100% 100%;
-			margin: 20px auto 0 auto;
+			margin-left: 20px;
 
 			&:hover {
 				background-image: url("https://cs.dartmouth.edu/~ksalesin/files/site/airplane-open.png");
-			}
-
-			@include bp(m) {
-				display: inline-block;
 			}
 		}
     }
@@ -69,7 +75,7 @@ body {
 		display: inline-block;
 		min-width: 50px;
 		text-align: center;
-		line-height: 2rem;
+		line-height: 3rem;
 	}
 
 	.zap-link {
@@ -174,6 +180,7 @@ body {
 	padding-right: 5px;
 	color: $main-text-color;
     text-decoration: none;
+	white-space: nowrap;
 }
 
 .zap-link-border {
