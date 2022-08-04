@@ -1,5 +1,5 @@
 ---
-title: "Combining Point and Line Samples for Direct Illumination"
+title: "Combining point and line samples for direct illumination"
 authors: ["Katherine Salesin", "Wojciech Jarosz"]
 author_links: ["", "https://cs.dartmouth.edu/~wjarosz/"]
 journal: "Computer Graphics Forum (Proceedings of EGSR), 38(4)"
