@@ -14,6 +14,6 @@ link_title6: "Part 6"
 link6: "https://medium.com/@kas493/building-a-xylophone-part-6-xylo-sculpting-15c1d9e1e60f"
 link_title7: "Part 7"
 link7: "https://medium.com/@kas493/building-a-xylophone-part-7-xylo-coda-ed4677049a62"
-teaser_image: "files/site/xylophone.jpg"
+teaser_image: "/files/site/xylophone.jpg"
 description: "I built a xylophone for fun as a computational geometry and woodworking project one spring. I wrote a Medium blog series describing the physics, computations, and woodworking process in detail."
 ---

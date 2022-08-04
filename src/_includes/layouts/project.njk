@@ -32,33 +32,33 @@
 
         <ul class="hz-link-list">
             {% if paper_link %}
-                <a class="zap-link" href="{{ paper_link }}" target="_blank"><li><span class="zap-link-border"></span>Paper</li></a>
+                <a class="zap-link" href="{{ paper_link | url }}" target="_blank"><li><span class="zap-link-border"></span>Paper</li></a>
             {% endif %}
             {% if pub_link %}
-                <a class="zap-link" href="{{ pub_link }}" target="_blank"><li><span class="zap-link-border"></span>DOI</li></a>
+                <a class="zap-link" href="{{ pub_link | url }}" target="_blank"><li><span class="zap-link-border"></span>DOI</li></a>
             {% endif %}
             {% if supp_link %}
-                <a class="zap-link" href="{{ supp_link }}" target="_blank"><li><span class="zap-link-border"></span>Supplemental</li></a>
+                <a class="zap-link" href="{{ supp_link | url }}" target="_blank"><li><span class="zap-link-border"></span>Supplemental</li></a>
             {% endif %}
             {% if tutorial_link %}
-                <a class="zap-link" href="{{ tutorial_link }}" target="_blank"><li><span class="zap-link-border"></span>Tutorial</li></a>
+                <a class="zap-link" href="{{ tutorial_link | url }}" target="_blank"><li><span class="zap-link-border"></span>Tutorial</li></a>
             {% endif %}
             {% if slides_pdf_link %}
-                <a class="zap-link" href="{{ slides_pdf_link }}" target="_blank"><li><span class="zap-link-border"></span>Slides (PDF)</li></a>
+                <a class="zap-link" href="{{ slides_pdf_link | url }}" target="_blank"><li><span class="zap-link-border"></span>Slides (PDF)</li></a>
             {% endif %}
             {% if slides_key_link %}
-                <a class="zap-link" href="{{ slides_key_link }}" target="_blank"><li><span class="zap-link-border"></span>Slides (Keynote)</li></a>
+                <a class="zap-link" href="{{ slides_key_link | url }}" target="_blank"><li><span class="zap-link-border"></span>Slides (Keynote)</li></a>
             {% endif %}
             {% if video_link %}
-                <a class="zap-link" href="{{ video_link }}" target="_blank"><li><span class="zap-link-border"></span>Video</li></a>
+                <a class="zap-link" href="{{ video_link | url }}" target="_blank"><li><span class="zap-link-border"></span>Video</li></a>
             {% endif %}
             {% if code_link %}
-                <a class="zap-link" href="{{ code_link }}" target="_blank"><li><span class="zap-link-border"></span>Code</li></a>
+                <a class="zap-link" href="{{ code_link | url }}" target="_blank"><li><span class="zap-link-border"></span>Code</li></a>
             {% endif %}
         </ul>
 
         <div class="project-teaser">
-            <img src="{{ teaser_image_lg }}">
+            <img src="{{ teaser_image_lg | url }}">
         </div>
 
         <div class="project-section">

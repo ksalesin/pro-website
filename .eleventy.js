@@ -58,6 +58,7 @@ module.exports = (eleventyConfig) => {
             includes: "_includes"
         },
         templateFormats: ["html", "md", "liquid", "njk"],
+        pathPrefix: "/~ksalesin/",
         passthroughFileCopy: true
     };
 }
