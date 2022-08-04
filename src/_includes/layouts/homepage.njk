@@ -26,32 +26,22 @@
         <div class="grid">
             {% for pub in collections.publications | reverse %}
                 <div class="grid-item grid-item-{{ loop.index }}">
-                    <img src="{{ pub.data.teaser_image }}">
+                    <img src="{{ pub.data.teaser_image_sm }}">
                     <div class="grid-text">
                         <h4>{{ pub.data.title }}</h4>
                         <p>
-                        {{ pub.data.authors }}. {{ pub.data.journal }}. {{ pub.data.date_fancy }}.
+                            {% for author in pub.data.authors %}
+                                {% if loop.last %}
+                                    and {{ author }}.
+                                {% else %}
+                                    {{ author }}{{ "," if pub.data.authors.length != 2 else "" }}&nbsp;
+                                {% endif %}
+                            {% endfor %}
+                            {{ pub.data.journal }}. {{ pub.data.date_fancy }}.
                         </p>
 
                         <ul class="hz-link-list">
-                            {% if pub.data.paper_link %}
-                                <a class="zap-link" href="{{ pub.data.paper_link }}" target="_blank"><li><span class="zap-link-border"></span>Paper</li></a>
-                            {% endif %}
-                            {% if pub.data.pub_link %}
-                                <a class="zap-link" href="{{ pub.data.pub_link }}" target="_blank"><li><span class="zap-link-border"></span>DOI</li></a>
-                            {% endif %}
-                            {% if pub.data.supp_link %}
-                                <a class="zap-link" href="{{ pub.data.supp_link }}" target="_blank"><li><span class="zap-link-border"></span>Supplemental</li></a>
-                            {% endif %}
-                            {% if pub.data.slides_link %}
-                                <a class="zap-link" href="{{ pub.data.slides_link }}" target="_blank"><li><span class="zap-link-border"></span>Slides</li></a>
-                            {% endif %}
-                            {% if pub.data.video_link %}
-                                <a class="zap-link" href="{{ pub.data.video_link }}" target="_blank"><li><span class="zap-link-border"></span>Video</li></a>
-                            {% endif %}
-                            {% if pub.data.code_link %}
-                                <a class="zap-link" href="{{ pub.data.code_link }}" target="_blank"><li><span class="zap-link-border"></span>Code</li></a>
-                            {% endif %}
+                            <a class="zap-link" href="{{ pub.url }}"><li><span class="zap-link-border"></span>Project Page</li></a>
                         </ul>
                     </div>
                 </div>

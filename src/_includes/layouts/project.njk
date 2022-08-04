@@ -1,0 +1,81 @@
+{% extends "layouts/_common.njk" %}
+
+{% block main %}
+    <div class="project-page">
+        <h1>{{ title }}</h1>
+        <h3>
+            {% for author in authors %}
+                {% if author_links[loop.index0] != "" %}
+                    {% if loop.last %}
+                        and&nbsp;
+                        <a class="zap-link" href="{{ author_links[loop.index0] }}" target="_blank">
+                            <span class="zap-link-border"></span>
+                            {{ author }}
+                        </a>.
+                    {% else %}
+                        <a class="zap-link" href="{{ author_links[loop.index0] }}" target="_blank">
+                            <span class="zap-link-border"></span>
+                            {{ author }}
+                        </a>
+                        {{ "," if authors.length != 2 else "" }}&nbsp;
+                    {% endif %}
+                {% else %}
+                    {% if loop.last %}
+                        and {{ author }}.
+                    {% else %}
+                        {{ author }}{{ "," if authors.length != 2 else "" }}&nbsp;
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        </h3>
+        <h4>{{ journal }}. {{ date_fancy }}.</h4>
+
+        <ul class="hz-link-list">
+            {% if paper_link %}
+                <a class="zap-link" href="{{ paper_link }}" target="_blank"><li><span class="zap-link-border"></span>Paper</li></a>
+            {% endif %}
+            {% if pub_link %}
+                <a class="zap-link" href="{{ pub_link }}" target="_blank"><li><span class="zap-link-border"></span>DOI</li></a>
+            {% endif %}
+            {% if supp_link %}
+                <a class="zap-link" href="{{ supp_link }}" target="_blank"><li><span class="zap-link-border"></span>Supplemental</li></a>
+            {% endif %}
+            {% if tutorial_link %}
+                <a class="zap-link" href="{{ tutorial_link }}" target="_blank"><li><span class="zap-link-border"></span>Tutorial</li></a>
+            {% endif %}
+            {% if slides_pdf_link %}
+                <a class="zap-link" href="{{ slides_pdf_link }}" target="_blank"><li><span class="zap-link-border"></span>Slides (PDF)</li></a>
+            {% endif %}
+            {% if slides_key_link %}
+                <a class="zap-link" href="{{ slides_key_link }}" target="_blank"><li><span class="zap-link-border"></span>Slides (Keynote)</li></a>
+            {% endif %}
+            {% if video_link %}
+                <a class="zap-link" href="{{ video_link }}" target="_blank"><li><span class="zap-link-border"></span>Video</li></a>
+            {% endif %}
+            {% if code_link %}
+                <a class="zap-link" href="{{ code_link }}" target="_blank"><li><span class="zap-link-border"></span>Code</li></a>
+            {% endif %}
+        </ul>
+
+        <div class="project-teaser">
+            <img src="{{ teaser_image_lg }}">
+        </div>
+
+        <div class="project-section">
+            <h4>Abstract</h4>
+            <div class="hr"></div>
+            <div class="abstract">{{ abstract }}</div>
+        </div>
+
+        {% if video_link %}
+        <div class="project-section">
+            <h4>Video</h4>
+            <div class="hr"></div>
+            <video controls>
+                <source src="{{ video_link }}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        {% endif %}
+    </div>
+{% endblock %}
