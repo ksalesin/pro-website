@@ -231,7 +231,7 @@ body {
 	.project-teaser {
 		img {
 			width: 100%; // typically 768px
-			height: 300px;
+			height: 400px;
 			object-fit: cover;
 
 			@include bp(m) {

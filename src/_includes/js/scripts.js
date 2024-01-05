@@ -8,7 +8,8 @@ var $window = $(window),
 	turq = "#26f1f5",
 	violet = "#7d5fff",
 	fuschia = "#fa3bf5",
-	pink = "#ff1493";
+	pink = "#ff1493",
+	white = "#ffffff";
 
 $document.ready(function() {
 	// Smooth scroll for on-page navigation links
@@ -29,23 +30,24 @@ $document.ready(function() {
 $(".grid-item").mouseenter(function(){
 	var $element = $(this);
 	$element.css("box-shadow", "0px 0px 15px #cccccc");
-});
-$(".grid-item-1").mouseenter(function(){
-	var $element = $(this);
 	$element.css("background-color", lime);
 });
-$(".grid-item-2").mouseenter(function(){
-	var $element = $(this);
-	$element.css("background-color", pink);
-});
-$(".grid-item-3").mouseenter(function(){
-	var $element = $(this);
-	$element.css("background-color", yellow_lime);
-});
-$(".grid-item-4").mouseenter(function(){
-	var $element = $(this);
-	$element.css("background-color", turq);
-});
+// $(".grid-item-1").mouseenter(function(){
+// 	var $element = $(this);
+// 	$element.css("background-color", lime);
+// });
+// $(".grid-item-2").mouseenter(function(){
+// 	var $element = $(this);
+// 	$element.css("background-color", pink);
+// });
+// $(".grid-item-3").mouseenter(function(){
+// 	var $element = $(this);
+// 	$element.css("background-color", yellow_lime);
+// });
+// $(".grid-item-4").mouseenter(function(){
+// 	var $element = $(this);
+// 	$element.css("background-color", turq);
+// });
 
 $(".grid-item").mouseleave(function(){
 	var $element = $(this);

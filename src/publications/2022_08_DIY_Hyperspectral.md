@@ -2,7 +2,7 @@
 title: "DIY hyperspectral imaging via polarization-induced spectral filters"
 authors: ["Katherine Salesin", "Dario Seyb", "Sarah Friday", "Wojciech Jarosz"]
 author_links: ["", "https://darioseyb.com/", "", "https://cs.dartmouth.edu/~wjarosz/"]
-journal: "Proceedings of ICCP, XX(XX)"
+journal: "Proceedings of ICCP"
 date_fancy: "August 2022"
 date: "2022-08"
 teaser_image_sm: "/files/diy-hyperspectral-2022/teaser1.png"
