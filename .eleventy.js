@@ -53,7 +53,7 @@ module.exports = (eleventyConfig) => {
     return {
         dir: {
             input: "src",
-            output: "_site",
+            output: "/Users/kate/pro-website-static",
             layouts: "_includes/layouts/",
             includes: "_includes"
         },
